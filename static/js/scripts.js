@@ -17,3 +17,14 @@ window.addEventListener('scroll', () => {
     menuIcon.classList.toggle('fa-bars');
     menuIcon.classList.toggle('fa-close');
   });
+
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      loop:true,
+      items:1,
+      autoplay:true,
+      autoplaySpeed: 1000,
+      itemElement: "figure",
+
+    });
+  });
