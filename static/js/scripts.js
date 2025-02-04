@@ -28,3 +28,30 @@ window.addEventListener('scroll', () => {
 
     });
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const mainImage = document.querySelector('.featured-img');
+    const thumbnails = document.querySelectorAll('.product-card-gallery img');
+
+    if(mainImage && thumbnails.length > 0) {
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener('click', () => {
+          const src = thumbnail.getAttribute('src');
+          document.querySelector('.current-gallery-item').classList.remove('current-gallery-item');
+          mainImage.setAttribute('src', src);
+          thumbnail.classList.add('current-gallery-item');
+        });
+      });
+    }
+
+    const productName = document.querySelector('.product-name');
+    const subjectField = document.querySelector('#contact-form input[name="subject"]');
+    const formTitle = document.querySelector('#contact-form h2');
+    console.log(subjectField);
+
+    if(productName && subjectField) {
+      formTitle.textContent = formTitle.textContent + productName.textContent;
+      subjectField.value = formTitle.textContent;
+    }
+
+  });
