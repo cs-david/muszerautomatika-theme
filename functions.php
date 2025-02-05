@@ -49,7 +49,9 @@ function muszerautomatika_theme_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'muszerautomatika-theme' ),
+			'menu-1' => 'Fejléc 1',
+			'menu-2' => 'Fejléc 2',
+			'menu-footer' => 'Lábléc',
 		)
 	);
 
@@ -67,18 +69,6 @@ function muszerautomatika_theme_setup() {
 			'caption',
 			'style',
 			'script',
-		)
-	);
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'muszerautomatika_theme_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
 		)
 	);
 
@@ -101,18 +91,6 @@ function muszerautomatika_theme_setup() {
 	);
 }
 add_action( 'after_setup_theme', 'muszerautomatika_theme_setup' );
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function muszerautomatika_theme_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'muszerautomatika_theme_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'muszerautomatika_theme_content_width', 0 );
 
 /**
  * Register widget area.
@@ -139,20 +117,14 @@ add_action( 'widgets_init', 'muszerautomatika_theme_widgets_init' );
  */
 function muszerautomatika_theme_scripts() {
 	wp_enqueue_style( 'muszerautomatika-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'muszerautomatika-theme-style', 'rtl', 'replace' );
+	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap', false);
+    wp_enqueue_style('custom-styles', get_template_directory_uri() . '/css/styles.css', array(), null);
+    wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/33aef8f39e.js', array(), null, true);
 
-	wp_enqueue_script( 'muszerautomatika-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'muszerautomatika-theme-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'muszerautomatika_theme_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -169,10 +141,26 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
+class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+    // Egyes menüpontok módosítása
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
 
+        $output .= '<li class="' . esc_attr($class_names) . '">';
+
+        $attributes  = !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+        $title = apply_filters('the_title', $item->title, $item->ID);
+
+        $output .= '<a' . $attributes . '>' . $title;
+
+        // Itt adjuk hozzá az egyedi HTML-t a menüpont szöveg után
+        $output .= '<div class="menu-underline">
+                        <div class="menu-dot dot-1"></div>
+                        <div class="menu-dot dot-2"></div>
+                        <div class="menu-dot dot-underline"></div>
+                    </div>';
+
+        $output .= '</a>';
+    }
+}

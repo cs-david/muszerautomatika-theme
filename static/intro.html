@@ -13,39 +13,46 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <header class="sticky-header">
+    <a class="skip-link screen-reader-text" href="#primary">Ugrás a tartalomhoz</a>
+    <header id="masthead" class="sticky-header site-header">
         <div class="wrap">
             <nav class="top-nav" id="top-nav">
-                <a class="header-logo" href="index.html"><h1>Gáz és oldószergőz<br> <span>érzékelő készülékek</span></h1><div class="ma-logo"><img src="img/ma-logo.svg" alt="Műszer automatika szimbolum"/> Műszer Automatika Kft.</div></a>
+                <a class="header-logo" rel="home" href="#home"><p class="site-title">Gáz és oldószergőz<br> <span>érzékelő készülékek</span></p><p class="ma-logo"><img src="img/ma-logo.svg" alt="Műszer automatika szimbolum"/> Műszer Automatika Kft.</p></a>
                 <div class="header-right">
                     <div class="header-right-top">
                         <div class="info-line">Gázérzékelőkkel kapcsolatos tájékoztatás: <a href="tel:+36203599316">+36-20/359-9316</a></div>
-                        <div class="language-selector">
-                            <a href="" class="current-language">HU</a>
-                            <a href="">EN</a>
+                        <div class="wpml-ls">
+                            <ul>
+                                <li class="wpml-ls-item wpml-ls-current-language"><a href="">HU</a></li>
+                                <li class="wpml-ls-item"><a href="">EN</a></li>
+                            </ul>
                         </div>         
                     </div>
                     <div class="header-right-bottom">
                         <div class="main-menu">
-                            <a href="products.html">Termékek <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a>
-                            <a href="applications.html">Alkalmazások <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a>
-                            <a href="service.html">Szakszerviz <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a>
-                            <a href="support.html">Támogatás <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a>
-                            <a class="current-item" href="intro.html">Bemutatkozás <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a>
-                            <a href="contact.html">Kapcsolat <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a>               
+                            <ul id="main-menu-list" class="menu">
+                                <li class="menu-item"><a href="products.html">Termékek <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a></li>
+                                <li class="menu-item"><a href="applications.html">Alkalmazások <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a></li>
+                                <li class="menu-item"><a href="service.html">Szakszerviz <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a></li>
+                                <li class="menu-item"><a href="support.html">Támogatás <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a></li>
+                                <li class="menu-item current-menu-item"><a href="intro.html">Bemutatkozás <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a></li>
+                                <li class="menu-item"><a href="contact.html">Kapcsolat <div class="menu-underline"><div class="menu-dot dot-1"></div><div class="menu-dot dot-2"></div><div class="menu-dot dot-underline"></div></div></a></li>               
+                            </ul>
                         </div>
                         <div class="social-links">
-                            <a href="#facebook"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#linkedin"><i class="fa-brands fa-linkedin"></i></a>            
+                            <ul id="social-links-list" class="menu">
+                                <li class="menu-item"><a href="#facebook"><span class="screen-reader-text">Facebook</span><i class="fa-brands fa-facebook"></i></a></li>
+                                <li class="menu-item"><a href="#linkedin"><span class="screen-reader-text">Linkedin</span><i class="fa-brands fa-linkedin"></i></a></li>
+                            </ul>            
                         </div>          
                     </div>
                 </div>
-                <button class="mobile-menu-trigger" id="menu-trigger"><i class="fa fa-bars"></i></i></a>
+                <button class="mobile-menu-trigger" id="menu-trigger" aria-controls="primary-menu" aria-expanded="false"><span class="screen-reader-text">Mobil menü megnyitása</span><i class="fa fa-bars"></i></i></a>
             </nav>
         </div>
     </header>
     <a class="fixed-offer-btn" href="index.html#contact-form">AJÁNLATKÉRÉS</a>
-    <main>
+    <main id="primary">
         <section class="hero featured-img-section">
             <div class="wrap-wide">
                 <figure>
