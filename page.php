@@ -15,6 +15,9 @@
 get_header();
 ?>
 
+	<?php if(get_field('floating_cta')) : ?>
+        <a class="fixed-offer-btn" href="#contact-form"><?php the_field('floating_cta_label'); ?></a>
+    <?php endif; ?>
 	<main id="primary" class="site-main">
 
 		<?php
