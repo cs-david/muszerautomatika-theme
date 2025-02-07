@@ -20,39 +20,64 @@
                     <h5><?php echo get_bloginfo( 'description', 'display' ); ?></h5>
                 </div>
                 <div class="footer-col-2 fancy-anchor">
-                    <h4 class="fat-footer-titles ul-dots">Termékek</h4>
+					<h4 class="fat-footer-titles ul-dots"><?php _e('Termékek', 'muszerautomatika-theme'); ?></h4>
                     <div class="fat-footer-menu">
-                        <a href="">Érzékelők</a>
-                        <a href="">Központi egységek</a>
-                        <a href="">Hang és fényjelzők</a>
-                        <a href="">Hordozható gázérzékelők</a>
-                        <a href="">Kiegészítő egységek</a>
+					<?php
+					$product_terms = get_terms(array(
+						'taxonomy'   => 'termek_kategoria', // Your custom taxonomy name
+						'hide_empty' => false, // Show even empty categories
+						'parent'     => 0, // Get only top-level terms (no parent)
+					));
+
+					if (!empty($product_terms) && !is_wp_error($product_terms)) {
+						echo '<ul class="footer-product-cat-list">';
+						foreach ($product_terms as $product_term) {
+							echo '<li><a href="' . get_term_link($product_term) . '">' . esc_html($product_term->name) . '</a></li>';
+						}
+						echo '</ul>';
+					} else {
+						echo '<p>' . esc_html_e('Nincsenek elérhető kategóriák.', 'muszerautomatika-theme') . '</p>';
+					}
+					?>
                     </div>
                 </div>
                 <div class="footer-col-3 fancy-anchor">
-                    <h4 class="fat-footer-titles ul-dots">Alkalmazások</h4>
+					<h4 class="fat-footer-titles ul-dots"><?php _e('Alkalmazások', 'muszerautomatika-theme'); ?></h4>
                     <div class="fat-footer-menu">
-                        <a href="">Kazánházi földgázérzékelés</a>
-                        <a href="">Garázs szén-monoxid és nitrogén-dioxid érzékelés</a>
-                        <a href="">Technológiai gázérzékelés</a>
-                        <a href="">Lakótéri gázérzékelés</a>
+					<?php
+					$foa_terms = get_terms(array(
+						'taxonomy'   => 'alkalmazasi_teruletek', // Your custom taxonomy name
+						'hide_empty' => false, // Show even empty categories
+						'parent'     => 0, // Get only top-level terms (no parent)
+					));
+
+					if (!empty($foa_terms) && !is_wp_error($foa_terms)) {
+						echo '<ul class="footer-product-cat-list">';
+						foreach ($foa_terms as $foa_term) {
+							echo '<li><a href="' . get_term_link($foa_term) . '">' . esc_html($foa_term->name) . '</a></li>';
+						}
+						echo '</ul>';
+					} else {
+						echo '<p>' . esc_html_e('Nincsenek elérhető kategóriák.', 'muszerautomatika-theme') . '</p>';
+					}
+					?>
                     </div>
                 </div>
                 <div class="footer-col-4 fancy-anchor">
-                    <h4 class="fat-footer-titles ul-dots">Kapcsolat</h4>
+					<h4 class="fat-footer-titles ul-dots"><?php _e('Kapcsolat', 'muszerautomatika-theme'); ?></h4>
                     <dl>
                         <dt>info</dt>
-                        <dd><a href="tel:+36203599316">+36-20/359-9316</a></dd>
-                        <dt>szakszerviz</dt>
-                        <dd><a href="tel:+3623416761">+36-23-416-761</a></dd>    
+                        <dd><a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_theme_mod('info_phone', '+36-20/359-9316')); ?>"><?php echo get_theme_mod('info_phone', '+36-20/359-9316'); ?></a></dd>
+						<dt><?php _e('szakszerviz', 'muszerautomatika-theme'); ?></dt>
+                        <dd><a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_theme_mod('service_phone', '+36-23-416-761')); ?>"><?php echo get_theme_mod('service_phone', '+36-23-416-761'); ?></a></dd>    
                     </dl>
-                    <a href="kapcsolat.html">további elérhetőségek</a>
+					<a href="<?php echo esc_url(home_url('/kapcsolat')); ?>"><?php _e('további elérhetőségek', 'muszerautomatika-theme'); ?></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <div class="wrap">
-                <p class="copyright"><?php esc_html_e( '© 2024 - Minden jog fenntartva Műszer Automatika Kft.', 'muszerautomatika-theme' ); ?></p>
+				<p class="copyright">© <?php echo date('Y'); ?> - <?php esc_html_e( 'Minden jog fenntartva Műszer Automatika Kft.', 'muszerautomatika-theme' ); ?></p>
 				<?php 
 				wp_nav_menu(
 					array(

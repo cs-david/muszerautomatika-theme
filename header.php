@@ -35,7 +35,7 @@
 				<?php endif; ?>
 				<div class="header-right">
                     <div class="header-right-top">
-                        <div class="info-line"><?php esc_html_e( 'Gázérzékelőkkel kapcsolatos tájékoztatás:', 'muszerautomatika-theme' ); ?> <a href="tel:+36203599316">+36-20/359-9316</a></div>
+						<div class="info-line"><?php esc_html_e( 'Gázérzékelőkkel kapcsolatos tájékoztatás:', 'muszerautomatika-theme' ); ?> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_theme_mod('info_phone', '+36-20/359-9316')); ?>"><?php echo get_theme_mod('info_phone', '+36-20/359-9316'); ?></a></div>
 						<?php do_action('wpml_add_language_selector'); ?>
                     </div>
                     <div class="header-right-bottom">

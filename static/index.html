@@ -52,7 +52,7 @@
         </div>
     </header>
     <a class="fixed-offer-btn" href="#contact-form">AJÁNLATKÉRÉS</a>
-    <main id="primary">
+    <main id="primary" class="site-main">
         <section class="hero featured-img-section">
             <div class="wrap-wide">
                 <figure>
@@ -84,41 +84,41 @@
             <div class="wrap-narrow">
                 <h2 class="ul-dots">Termékeink</h2>
                 <div class="product-tiles">
-                    <div class="rows row-1">
                         <a href="" class="product-tile">
                             <figure>
                                 <img src="media/erzekelo.png" alt="érzékelő"/>
                             </figure>
-                            érzékelők
+                            <span>érzékelők</span>
                         </a>
+                        <div class="row-break"></div>
                         <a href="" class="product-tile">
                             <figure>
                                 <img src="media/erzekelo.png" alt="érzékelő"/>
                             </figure>
-                            központi<br> egységek
+                            <span>központi egységek</span>
                         </a>
-                    </div>
-                    <div class="rows row-2">
+                        <div class="row-break"></div>
                         <a href="" class="product-tile">
                             <figure>
                                 <img src="media/erzekelo.png" alt="érzékelő"/>
                             </figure>
-                            hang és<br> fényjelzők
+                            <span>hang és fényjelzők</span>
                         </a>
+                        <div class="row-break"></div>
                         <a href="" class="product-tile">
                             <figure>
                                 <img src="media/erzekelo.png" alt="érzékelő"/>
                             </figure>
-                            hordozható<br> gázérzékelők
+                            <span>hordozható gázérzékelők</span>
                         </a>
+                        <div class="row-break"></div>
                         <a href="" class="product-tile">
                             <figure>
                                 <img src="media/erzekelo.png" alt="érzékelő"/>
                             </figure>
-                            kiegészítő<br> egységek
+                            <span>kiegészítő egységek</span>
                         </a>
-                    </div>
-                </div>
+                        <div class="row-break"></div>
             </div>
         </section>
         <section class="certs">
@@ -221,9 +221,9 @@
                             </div>
                             <div class="form-element form-message">
                                 <label for="message">Üzenet</label>
-                                <textarea id="message" name="message" required></textarea>
+                                <textarea rows="10" id="message" name="message" required></textarea>
                             </div>
-                            <button type="submit" class="red">üzenet elküldése</button>
+                            <input type="submit" class="wpcf7-submit red" value="üzenet elküldése">
                         </form>
                         <img src="img/ma-logo-white.svg" alt="Műszer automatika szimbolum"/ class="form-ma-logo">
                     </div>
@@ -264,20 +264,24 @@
                 <div class="footer-col-2 fancy-anchor">
                     <h4 class="fat-footer-titles ul-dots">Termékek</h4>
                     <div class="fat-footer-menu">
-                        <a href="">Érzékelők</a>
-                        <a href="">Központi egységek</a>
-                        <a href="">Hang és fényjelzők</a>
-                        <a href="">Hordozható gázérzékelők</a>
-                        <a href="">Kiegészítő egységek</a>
+                        <ul class="footer-product-cat-list">
+                            <li><a href="">Érzékelők</a></li>
+                            <li><a href="">Központi egységek</a></li>
+                            <li><a href="">Hang és fényjelzők</a></li>
+                            <li><a href="">Hordozható gázérzékelők</a></li>
+                            <li><a href="">Kiegészítő egységek</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="footer-col-3 fancy-anchor">
                     <h4 class="fat-footer-titles ul-dots">Alkalmazások</h4>
                     <div class="fat-footer-menu">
-                        <a href="">Kazánházi földgázérzékelés</a>
-                        <a href="">Garázs szén-monoxid és nitrogén-dioxid érzékelés</a>
-                        <a href="">Technológiai gázérzékelés</a>
-                        <a href="">Lakótéri gázérzékelés</a>
+                        <ul class="footer-product-cat-list">
+                            <li><a href="">Kazánházi földgázérzékelés</a></li>
+                            <li><a href="">Garázs szén-monoxid és nitrogén-dioxid érzékelés</a></li>
+                            <li><a href="">Technológiai gázérzékelés</a></li>
+                            <li><a href="">Lakótéri gázérzékelés</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="footer-col-4 fancy-anchor">

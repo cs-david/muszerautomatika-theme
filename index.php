@@ -14,7 +14,7 @@
 
 get_header();
 ?>
-
+	<a class="fixed-offer-btn" href="#contact-form">AJÁNLATKÉRÉS</a>
 	<main id="primary" class="site-main">
 
 		<?php
@@ -53,5 +53,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

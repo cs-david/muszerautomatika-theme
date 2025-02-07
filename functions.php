@@ -45,6 +45,7 @@ function muszerautomatika_theme_setup() {
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
 	add_theme_support( 'post-thumbnails' );
+	add_post_type_support('page', 'thumbnail');
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
@@ -91,6 +92,7 @@ function muszerautomatika_theme_setup() {
 	);
 }
 add_action( 'after_setup_theme', 'muszerautomatika_theme_setup' );
+
 
 /**
  * Register widget area.
@@ -164,3 +166,113 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
         $output .= '</a>';
     }
 }
+
+function ma_products_post_type() {
+    $labels = array(
+        'name'               => __('Termékek', 'textdomain'),
+        'singular_name'      => __('Termék', 'textdomain'),
+        'menu_name'          => __('Termékek', 'textdomain'),
+        'name_admin_bar'     => __('Termék', 'textdomain'),
+        'add_new_item'       => __('Új termék hozzáadása', 'textdomain'),
+        'new_item'           => __('Új termék', 'textdomain'),
+        'edit_item'          => __('Termék szerkesztése', 'textdomain'),
+        'view_item'          => __('Termék megtekintése', 'textdomain'),
+        'all_items'          => __('Összes termék', 'textdomain'),
+        'search_items'       => __('Termékek keresése', 'textdomain'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true, 
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'termekek'), 
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => true,
+        'menu_position'      => 5, 
+        'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields'), 
+        'menu_icon'          => 'dashicons-products',
+        'show_in_rest'       => true, // Gutenberg támogatás
+    );
+
+    register_post_type('termek', $args);
+}
+
+add_action('init', 'ma_products_post_type');
+
+function ma_product_categories() {
+    $labels = array(
+        'name'              => _x('Termék kategóriák', 'taxonomy general name', 'textdomain'),
+        'singular_name'     => _x('Termék kategória', 'taxonomy singular name', 'textdomain'),
+    );
+
+    $args = array(
+        'hierarchical'      => true, // Ha hamis, akkor címkéként viselkedik
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'termek-kategoria'),
+    );
+
+    register_taxonomy('termek_kategoria', array('termek'), $args);
+}
+
+add_action('init', 'ma_product_categories');
+
+function ma_product_foa() {
+    $labels = array(
+        'name'              => _x('Alkalmazási területek', 'taxonomy general name', 'textdomain'),
+        'singular_name'     => _x('Alkalmazási terület', 'taxonomy singular name', 'textdomain'),
+    );
+
+    $args = array(
+        'hierarchical'      => false, // Ha hamis, akkor címkéként viselkedik
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'alkalmazasi-teruletek'),
+    );
+
+    register_taxonomy('alkalmazasi_teruletek', array('termek'), $args);
+}
+
+add_action('init', 'ma_product_foa');
+
+function ma_customizer_settings($wp_customize) {
+	$wp_customize->add_section('phone_section', array(
+		'title'       => __('Telefonszámok', 'textdomain'),
+		'priority'    => 30,
+	));
+    // Info Phone
+    $wp_customize->add_setting('info_phone', array(
+        'default'           => __('Telefonszám', 'textdomain'),
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ));
+
+    $wp_customize->add_control('info_phone', array(
+        'label'       => __('Info telefonszám', 'textdomain'),
+        'section'     => 'phone_section',
+        'type'        => 'text',
+    ));
+	// Service Phone
+    $wp_customize->add_setting('service_phone', array(
+        'default'           => __('Telefonszám', 'textdomain'),
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ));
+
+    $wp_customize->add_control('service_phone', array(
+        'label'       => __('Serviz telefonszám', 'textdomain'),
+        'section'     => 'phone_section',
+        'type'        => 'text',
+    ));
+}
+
+add_action('customize_register', 'ma_customizer_settings');
+
