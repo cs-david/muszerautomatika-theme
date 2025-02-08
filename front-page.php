@@ -118,13 +118,13 @@ get_header();
                 <h2 class="ul-dots"><?php _e('Alkalmazási területek', 'muszerautomatika-theme'); ?></h2>
                 <div class="application-tiles">
                     <div class="at-rows at-row-1">
-                        <a href="" class="application-tile">
+                        <a href="<?php echo site_url('/gazerzekelo-alkalmazasok/#kazanhazi-foldgazerzekeles'); ?>" class="application-tile">
                             <figure>
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/alkalmazas_kazanhaz.png" alt="<?php _e('Kazánház', 'muszerautomatika-theme'); ?>"/>
                             </figure>
                             <h3><span><?php _e('Kazánházi', 'muszerautomatika-theme'); ?></span> <span class="indent-1"><?php _e('földgázérzékelés', 'muszerautomatika-theme'); ?></span></h3>
                         </a>
-                        <a href="" class="application-tile">
+                        <a href="<?php echo site_url('/gazerzekelo-alkalmazasok/#garazs-szen-monoxid-es-nitrogen-dioxid-erzekeles'); ?>" class="application-tile">
                             <figure>
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/alkalmazas_garazs.png" alt="<?php _e('mélygarázs', 'muszerautomatika-theme'); ?>"/>
                             </figure>
@@ -132,13 +132,13 @@ get_header();
                         </a>
                     </div>
                     <div class="at-rows at-row-2">
-                        <a href="" class="application-tile">
+                        <a href="<?php echo site_url('/gazerzekelo-alkalmazasok/#technologiai-gazerzekeles'); ?>" class="application-tile">
                             <figure>
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/alkalmazas_tech.png" alt="<?php _e('Gyógyszerek egy futószalagon', 'muszerautomatika-theme'); ?>"/>
                             </figure>
                             <h3><span><?php _e('Technológiai', 'muszerautomatika-theme'); ?></span> <span class="indent-1"><?php _e('gázérzékelés', 'muszerautomatika-theme'); ?></span></h3>
                         </a>
-                        <a href="" class="application-tile">
+                        <a href="<?php echo site_url('/gazerzekelo-alkalmazasok/#lakoteri-gazerzekeles'); ?>" class="application-tile">
                             <figure>
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/alkalmazas_lakoter.png" alt="<?php _e('Alvó kisgyerek', 'muszerautomatika-theme'); ?>"/>
                             </figure>
@@ -154,7 +154,7 @@ get_header();
         } ?>
 
         <?php include_once('landing-link-section.php'); ?>
-          
+
         <section class="partners">
             <div class="wrap">
                 <h2><?php _e('KIEMELT PARTNEREINK, VEVŐINK', 'muszerautomatika-theme'); ?></h2>

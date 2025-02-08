@@ -54,7 +54,7 @@
 					if (!empty($foa_terms) && !is_wp_error($foa_terms)) {
 						echo '<ul class="footer-product-cat-list">';
 						foreach ($foa_terms as $foa_term) {
-							echo '<li><a href="' . get_term_link($foa_term) . '">' . esc_html($foa_term->name) . '</a></li>';
+							echo '<li><a href="' . esc_url(home_url('/gazerzekelo-alkalmazasok#' . $foa_term->slug)) . '">' . esc_html($foa_term->name) . '</a></li>';
 						}
 						echo '</ul>';
 					} else {

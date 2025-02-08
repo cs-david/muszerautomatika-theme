@@ -18,16 +18,15 @@ window.addEventListener('scroll', () => {
     menuIcon.classList.toggle('fa-close');
   });
 
-  $(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
-      loop:true,
-      items:1,
-      autoplay:true,
-      autoplaySpeed: 1000,
-      itemElement: "figure",
-
-    });
+jQuery(document).ready(function($) {
+  $(".owl-carousel").owlCarousel({
+    loop: true,
+    items: 1,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    itemElement: "figure",
   });
+});
 
   document.addEventListener('DOMContentLoaded', function() {
     const mainImage = document.querySelector('.featured-img');
@@ -45,12 +44,11 @@ window.addEventListener('scroll', () => {
     }
 
     const productName = document.querySelector('.product-name');
-    const subjectField = document.querySelector('#contact-form input[name="subject"]');
+    const subjectField = document.querySelector('#contact-form input[name="your-subject"]');
     const formTitle = document.querySelector('#contact-form h2');
-    console.log(subjectField);
 
     if(productName && subjectField) {
-      formTitle.textContent = formTitle.textContent + productName.textContent;
+      formTitle.innerHTML = formTitle.textContent + '<span>' + productName.textContent + '</span>';
       subjectField.value = formTitle.textContent;
     }
 

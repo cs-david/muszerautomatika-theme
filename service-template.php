@@ -50,7 +50,7 @@ get_header();
                                 <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
                                 <dd><?php echo get_theme_mod('service_postbox'); ?></dd>
                                 <dt><?php _e('Telefon:', 'muszerautomatika-theme'); ?></dt>
-                                <dd>                                    <?php 
+                                <dd><?php 
                                     $phone_numbers = explode(',', get_theme_mod('service_normal_phone', '+36-23-416-761'));
                                     foreach ($phone_numbers as $phone_number) {
                                         $cleaned_phone_number = preg_replace('/[^0-9+]/', '', $phone_number);

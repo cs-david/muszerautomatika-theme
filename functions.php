@@ -122,7 +122,7 @@ function muszerautomatika_theme_scripts() {
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap', false);
     wp_enqueue_style('custom-styles', get_template_directory_uri() . '/css/styles.css', array(), null);
     wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/33aef8f39e.js', array(), null, true);
-
+    wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/js/owl-carousel/owl.carousel.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'muszerautomatika-theme-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
 
 }
@@ -216,6 +216,7 @@ function ma_product_categories() {
         'show_admin_column' => true,
         'query_var'         => true,
         'rewrite'           => array('slug' => 'termek-kategoria'),
+        'show_in_rest'       => true,
     );
 
     register_taxonomy('termek_kategoria', array('termek'), $args);
@@ -236,12 +237,85 @@ function ma_product_foa() {
         'show_admin_column' => true,
         'query_var'         => true,
         'rewrite'           => array('slug' => 'alkalmazasi-teruletek'),
+        'show_in_rest'       => true,
     );
 
     register_taxonomy('alkalmazasi_teruletek', array('termek'), $args);
 }
 
 add_action('init', 'ma_product_foa');
+
+function ma_team_post_type() {
+    $labels = array(
+        'name'               => __('Munkatársak', 'textdomain'),
+        'singular_name'      => __('Munkatárs', 'textdomain'),
+        'menu_name'          => __('Munkatársak', 'textdomain'),
+        'name_admin_bar'     => __('Munkatárs', 'textdomain'),
+        'add_new_item'       => __('Új munkatárs hozzáadása', 'textdomain'),
+        'new_item'           => __('Új munkatárs', 'textdomain'),
+        'edit_item'          => __('Munkatárs szerkesztése', 'textdomain'),
+        'view_item'          => __('Munkatárs megtekintése', 'textdomain'),
+        'all_items'          => __('Összes munkatárs', 'textdomain'),
+        'search_items'       => __('Munkatársak keresése', 'textdomain'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true, 
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'munkatarsak'), 
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 6, 
+        'supports'           => array('title', 'editor', 'custom-fields'), 
+        'menu_icon'          => 'dashicons-groups',
+        'show_in_rest'       => true, // Gutenberg támogatás
+    );
+
+    register_post_type('munkatarsak', $args);
+}
+
+add_action('init', 'ma_team_post_type');
+
+function ma_slides_post_type() {
+    $labels = array(
+        'name'               => __('Slide-ok', 'textdomain'),
+        'singular_name'      => __('Slide', 'textdomain'),
+        'menu_name'          => __('Slide-ok', 'textdomain'),
+        'name_admin_bar'     => __('Slide', 'textdomain'),
+        'add_new_item'       => __('Új slide hozzáadása', 'textdomain'),
+        'new_item'           => __('Új slide', 'textdomain'),
+        'edit_item'          => __('Slide szerkesztése', 'textdomain'),
+        'view_item'          => __('Slide megtekintése', 'textdomain'),
+        'all_items'          => __('Összes slide', 'textdomain'),
+        'search_items'       => __('Slide-ok keresése', 'textdomain'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true, 
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'slides'), 
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 6, 
+        'supports'           => array('title', 'thumbnail'), 
+        'menu_icon'          => 'dashicons-align-wide',
+        'show_in_rest'       => true, // Gutenberg támogatás
+    );
+
+    register_post_type('slides', $args);
+}
+
+add_action('init', 'ma_slides_post_type');
 
 function ma_customizer_settings($wp_customize) {
 
@@ -352,6 +426,18 @@ function ma_customizer_settings($wp_customize) {
         'type'        => 'text',
     ));
 
+    $wp_customize->add_setting('sales_address_map_embed', array(
+        'default'           => 'Google Maps beágyazó kód',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ));
+
+    $wp_customize->add_control('sales_address_map_embed', array(
+        'label'       => 'Google Maps beágyazó kód',
+        'section'     => 'sales_contact_section',
+        'type'        => 'text',
+    ));
+
     // Shipping Address
     $wp_customize->add_setting('shipping_address', array(
         'default'           => 'Szállítási cím',
@@ -373,6 +459,18 @@ function ma_customizer_settings($wp_customize) {
 
     $wp_customize->add_control('sales_shipping_map', array(
         'label'       => 'Google Maps Link',
+        'section'     => 'sales_contact_section',
+        'type'        => 'text',
+    ));
+
+    $wp_customize->add_setting('sales_shipping_map_embed', array(
+        'default'           => 'Google Maps beágyazó kód',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ));
+
+    $wp_customize->add_control('sales_shipping_map_embed', array(
+        'label'       => 'Google Maps beágyazó kód',
         'section'     => 'sales_contact_section',
         'type'        => 'text',
     ));

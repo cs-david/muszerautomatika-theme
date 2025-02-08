@@ -38,54 +38,75 @@ get_header();
                 <div class="wrap">
                     <div class="contact-info-container">
                         <div>
-                        <h3 class="ul-dots">MŰSZER AUTOMATIKA KFT.</h3>
+                        <h3 class="ul-dots"><?php _e('MŰSZER AUTOMATIKA KFT.', 'muszerautomatika-theme'); ?></h3>
                             <dl class="contact-list">
-                            <dt>Postacím:</dt>
-                            <dd>2040 Budaörs, Komáromi utca 22.</dd>
-                            <dt>Postafiók:</dt>
-                            <dd>2040 Budaörs, Pf. 296.</dd>
-                            <dt>Telefon:</dt>
-                            <dd><a href="tel:+3623365280">(23) 365-280</a>, <a href="tel:+3623414922">(23) 414-922</a>, <a href="tel:+3623414923">(23) 414-923</a></dd>
-                            <dt>Fax:</dt>
-                            <dd>(23) 365-087</dd>
-                            <dt>e-mail:</dt>
-                            <dd><a href="mailto:mautom@muszerautomatika.hu">mautom@muszerautomatika.hu</a></dd>
+                            <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('company_address'); ?></dd>
+                            <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('company_postbox'); ?></dd>
+                            <dt><?php _e('Telefon:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php 
+                                $company_phone_numbers = explode(',', get_theme_mod('company_phone'));
+                                foreach ($company_phone_numbers as $phone_number) {
+                                    $cleaned_phone_number = preg_replace('/[^0-9+]/', '', $phone_number);
+                                    echo '<a href="tel:' . $cleaned_phone_number . '">' . $phone_number . '</a><br>';
+                                }
+                                ?>
+                            </dd>                            <dt><?php _e('Fax:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('company_fax'); ?></dd>
+                            <dt><?php _e('e-mail:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><a href="mailto:<?php echo get_theme_mod('company_email'); ?>"><?php echo get_theme_mod('company_email'); ?></a></dd>
+
                             </dl>
                         </div>
                         <div>
-                        <h3 class="ul-dots">GÁZÉRZÉKELŐ GYÁRTÁS<br> ÉS ÉRTÉKESÍTÉS</h3>
+                        <h3 class="ul-dots"><?php _e('GÁZÉRZÉKELŐ GYÁRTÁS<br> ÉS ÉRTÉKESÍTÉS', 'muszerautomatika-theme'); ?></h3>
                         <dl class="contact-list">
-                            <dt>Postacím:</dt>
-                            <dd>2040 Budaörs, Komáromi utca 22.</dd>
-                            <dt>Szállítási cím:</dt>
-                            <dd>2040 Budaörs, Garibaldi utca 8.</dd>
-                            <dt>Postafiók:</dt>
-                            <dd>2040 Budaörs, Pf. 296.</dd>
-                            <dt>Telefon:</dt>
-                            <dd><a href="tel:+3623365152">(23) 365-152</a>, <a href="tel:+3623524152">(23) 524-152</a></dd>
-                            <dt>Azonnali információ kérés:</dt>
-                            <dd><a href="tel:+36203599316">20/359-9316</a></dd>
-                            <dt>Fax:</dt>
-                            <dd>(23) 365-087</dd>
-                            <dt>e-mail:</dt>
-                            <dd><a href="mailto:gaz@muszerautomatika.hu">gaz@muszerautomatika.hu</a></dd>
+                            <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('sales_address'); ?></dd>
+                            <dt><?php _e('Szállítási cím:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('shipping_address'); ?></dd>
+                            <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('sales_postbox'); ?></dd>
+                            <dt><?php _e('Telefon:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php 
+                                $sales_phone_numbers = explode(',', get_theme_mod('sales_phone'));
+                                foreach ($sales_phone_numbers as $phone_number) {
+                                    $cleaned_phone_number = preg_replace('/[^0-9+]/', '', $phone_number);
+                                    echo '<a href="tel:' . $cleaned_phone_number . '">' . $phone_number . '</a><br>';
+                                }
+                                ?>
+                            </dd>
+                            <dt><?php _e('Azonnali információ kérés:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_theme_mod('info_phone')); ?>"><?php echo get_theme_mod('info_phone'); ?></a></dd>
+                            <dt><?php _e('Fax:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('sales_fax'); ?></dd>
+                            <dt><?php _e('e-mail:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><a href="mailto:<?php echo get_theme_mod('sales_email'); ?>"><?php echo get_theme_mod('sales_email'); ?></a></dd>
                         </dl>
                         </div>
                         <div>
-                        <h3 class="ul-dots">GÁZÉRZÉKELŐ<br> SZAKSZERVIZ</h3>
+                        <h3 class="ul-dots"><?php _e('GÁZÉRZÉKELŐ<br> SZAKSZERVIZ', 'muszerautomatika-theme'); ?></h3>
                             <dl class="contact-list">
-                            <dt>Postacím:</dt>
-                            <dd>2040 Budaörs, Komáromi utca 22.</dd>
-                            <dt>Postafiók:</dt>
-                            <dd>2040 Budaörs, Pf. 296.</dd>
-                            <dt>Telefon:</dt>
-                            <dd><a href="tel:+3623416761">(23) 416-761</a>, <a href="tel:+36203599332">06-20-359-9332</a></dd>
-                            <dt>Azonnali információ kérés:</dt>
-                            <dd><a href="tel:+3623416761">06-23-416-761</a></dd>
-                            <dt>Fax:</dt>
-                            <dd>(23) 365-837</dd>
-                            <dt>e-mail:</dt>
-                            <dd><a href="mailto:gazszerviz@muszerautomatika.hu">gazszerviz@muszerautomatika.hu</a></dd>
+                            <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('service_address'); ?></dd>
+                            <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('service_postbox'); ?></dd>
+                            <dt><?php _e('Telefon:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php 
+                                $service_phone_numbers = explode(',', get_theme_mod('service_normal_phone'));
+                                foreach ($service_phone_numbers as $phone_number) {
+                                    $cleaned_phone_number = preg_replace('/[^0-9+]/', '', $phone_number);
+                                    echo '<a href="tel:' . $cleaned_phone_number . '">' . $phone_number . '</a><br>';
+                                }
+                                ?>
+                            </dd>
+                            <dt><?php _e('Azonnali információ kérés:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_theme_mod('service_phone', '+36-23-416-761')); ?>"><?php echo get_theme_mod('service_phone', '+36-23-416-761'); ?></a></dd>
+                            <dt><?php _e('Fax:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('service_fax'); ?></dd>
+                            <dt><?php _e('e-mail:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><a href="mailto:<?php echo get_theme_mod('service_email'); ?>"><?php echo get_theme_mod('service_email'); ?></a></dd>
                             </dl>
                         </div>
                     </div>
@@ -93,40 +114,52 @@ get_header();
             </section>
             <section class="maps">
                 <div class="wrap-wide wrap-reverse">
-                <div class="wrap">
-                    <div class="maps-container">
-                    <div class="map-1">
-                        <p>2040 Budaörs, Komáromi utca 22.</p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2697.703258321635!2d18.947505376729588!3d47.45672357117646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741de279561e329%3A0xea8d170749fda762!2zQnVkYcO2cnMsIEtvbcOhcm9taSB1LiAyMiwgMjA0MA!5e0!3m2!1sen!2shu!4v1738175893963!5m2!1sen!2shu" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              </div>
-                    <div class="map-2">
-                        <p>2040 Budaörs, Garibaldi utca 8.</p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2697.747585623543!2d18.946925776729564!3d47.45585957117642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741de278b7943cb%3A0x82c7a903852a2639!2sBuda%C3%B6rs%2C%20Garibaldi%20u.%208%2C%202040!5e0!3m2!1sen!2shu!4v1738175929987!5m2!1sen!2shu" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              </div>
+                    <div class="wrap">
+                        <div class="maps-container">
+                            <div class="map-1">
+                                <p><?php echo get_theme_mod('sales_address'); ?></p>
+                                <iframe src="<?php echo get_theme_mod('sales_address_map_embed'); ?>"></iframe>              
+                            </div>
+                            <div class="map-2">
+                                <p><?php echo get_theme_mod('shipping_address'); ?></p>
+                                <iframe src="<?php echo get_theme_mod('sales_address_map_embed'); ?>"></iframe>              
+                            </div>
+                        </div>
                     </div>
-                </div>
                 </div>
             </section>
+
             <section class="team">
                 <div class="wrap">
-                <h3 class="ul-dots">ÜZLETÁG VEZETŐ KOLLÉGÁINK</h3>
+                <h3 class="ul-dots"><?php _e('ÜZLETÁG VEZETŐ KOLLÉGÁINK', 'muszerautomatika-theme'); ?></h3>
                 <div class="team-members">
+                    <?php
+                    // Query for 'munkatarsak' post type
+                    $args = array(
+                        'post_type' => 'munkatarsak',
+                        'posts_per_page' => -1, // Get all posts
+                        'orderby' => 'title',
+                        'order' => 'ASC'
+                    );
+                    $munkatarsak_query = new WP_Query($args);
+
+                    // Loop through the posts
+                    if ($munkatarsak_query->have_posts()) :
+                        while ($munkatarsak_query->have_posts()) : $munkatarsak_query->the_post();
+                    ?>
                     <div class="team-member">
-                    <span class="team-member-name">Kovács József</span>
-                    <span class="team-member-position">Ügyvezető</span>
-                    <p><span class="team-member-phone"><a href="tel:+3623365280">(23) 365-280</a></span></p>
-                    <p><span class="team-member-email"><a href="mailto:valami@mautomatika.hu">valami@mautomatika.hu</a></span></p>
+                        <span class="team-member-name"><?php the_title(); ?></span>
+                        <span class="team-member-position"><?php the_field('team_position'); ?></span>
+                        <p><span class="team-member-phone"><a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_field('team_phone')); ?>"><?php echo get_field('team_phone'); ?></a></span></p>
+                        <p><span class="team-member-email"><a href="mailto:<?php the_field('team_email'); ?>"><?php the_field('team_email'); ?></a></span></p>
                     </div>
-                    <div class="team-member">
-                    <span class="team-member-name">Kovács József</span>
-                    <span class="team-member-position">Ügyvezető</span>
-                    <p><span class="team-member-phone"><a href="tel:+3623365280">(23) 365-280</a></span></p>
-                    <p><span class="team-member-email"><a href="mailto:valami@mautomatika.hu">valami@mautomatika.hu</a></span></p>
-                    </div>
-                    <div class="team-member">
-                    <span class="team-member-name">Kovács József</span>
-                    <span class="team-member-position">Ügyvezető</span>
-                    <p><span class="team-member-phone"><a href="tel:+3623365280">(23) 365-280</a></span></p>
-                    <p><span class="team-member-email"><a href="mailto:valami@mautomatika.hu">valami@mautomatika.hu</a></span></p>
-                    </div>
+                    <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    else :
+                        echo '<p>' . __('Nem található munkatárs', 'muszerautomatika-theme') . '</p>';
+                    endif;
+                    ?>
                 </div>
                 </div>
             </section>
