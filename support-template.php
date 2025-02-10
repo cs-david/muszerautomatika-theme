@@ -31,12 +31,7 @@ get_header();
             </section>
             <section class="doc-downloads">
             <div class="wrap">
-                <div class="title-searchbox-container">
-                    <h1><?php _e('LETÖLTHETŐ DOKUMENTUMOK', 'muszerautomatika-theme'); ?></h1>
-                    <div class="searchbox">
-                        <i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Keresés a dokumentumok között" class="search-field">
-                    </div>
-                </div>
+                <h1><?php _e('LETÖLTHETŐ DOKUMENTUMOK', 'muszerautomatika-theme'); ?></h1>
                     <?php
                         $args = array(
                             'post_type' => 'termek',

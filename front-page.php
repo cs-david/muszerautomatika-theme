@@ -148,13 +148,6 @@ get_header();
                 </div>
             </div>
         </section>
-
-        <?php if (get_field("contact_form_type") != "disabled") {
-            include_once('contact-form-section.php');
-        } ?>
-
-        <?php include_once('landing-link-section.php'); ?>
-
         <section class="partners">
             <div class="wrap">
                 <h2><?php _e('KIEMELT PARTNEREINK, VEVŐINK', 'muszerautomatika-theme'); ?></h2>
@@ -167,6 +160,12 @@ get_header();
                 </div>
             </div>
         </section>
+
+        <?php if (get_field("contact_form_type") != "disabled") {
+            include_once('contact-form-section.php');
+        } ?>
+
+        <?php include_once('landing-link-section.php'); ?>
 
 		<?php endwhile; ?>
 

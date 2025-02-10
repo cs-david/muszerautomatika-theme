@@ -57,19 +57,10 @@ get_header(); ?>
                         <div class="searchbox">
                             <i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Keresés" class="search-field">
                         </div>
-                        <a class="all-products fancy" href="">Összes termék mutatása</a>
                         <h4 class="ul-dots">Termékkategóriák</h4>
                         <ul class="product-categories fancy-anchor">
-                            <li class="active-list-item"><a href="">Érzékelők</a>
-                                <ul class="sub-categories">
-                                    <li class="active-list-item"><a href="">Éghető gázok-gőzök</a></li>
-                                    <li><a href="">Mérgező gázok és oxigén</a></li>
-                                    <li><a href="">Garázs CO és NO2</a></li>
-                                    <li><a href="">Infravörös érzékelők CO2</a></li>
-                                    <li><a href="">Lakótéri gázérzékelők</a></li>
-                                    <li><a href="">Gázérzékelő modul</a></li>
-                                </ul>
-                            </li>
+                            <li class="active-list-item"><a class="all-products" href="">Összes termék mutatása</a></li>
+                            <li><a href="">Érzékelők</a></li>
                             <li><a href="">Központi egységek</a></li>
                             <li><a href="">Hang és fényjelzők</a></li>
                             <li><a href="">Hordozható gázérzékelők</a></li>

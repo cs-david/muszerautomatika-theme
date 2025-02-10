@@ -13,7 +13,6 @@
     <div class="wrap">
         <div class="product-cols product-col-1">
             <div class="category-filters">
-                <a class="all-products fancy" href="<?php echo esc_url(home_url('/termekek')); ?>"><?php _e('Összes termék mutatása', 'muszerautomatika-theme'); ?></a>
                 <h4 class="ul-dots"><?php _e('Termék kategóriák', 'muszerautomatika-theme'); ?></h4>
             <?php
             $taxonomy = 'termek_kategoria';
@@ -24,6 +23,7 @@
 
             if (!empty($terms) && !is_wp_error($terms)) {
                 echo '<ul class="product-categories fancy-anchor">';
+                echo '<li class="active-list-item"><a class="all-products" href="<?php echo esc_url(home_url("/termekek")); ?>">' . _e('Összes termék mutatása', 'muszerautomatika-theme') . '</a></li>';
                 foreach ($terms as $term) {
                     $active_class = has_term($term->term_id, $taxonomy) ? 'active-list-item' : '';
                     if ($term->parent == 0) {
