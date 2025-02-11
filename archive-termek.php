@@ -57,7 +57,7 @@ get_header(); ?>
                         <div class="searchbox">
                             <i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Keresés" class="search-field">
                         </div>
-                        <h4 class="ul-dots">Termékkategóriák</h4>
+                        <h4 class="ul-dots">Termék kategóriák</h4>
                         <ul class="product-categories fancy-anchor">
                             <li class="active-list-item"><a class="all-products" href="">Összes termék mutatása</a></li>
                             <li><a href="">Érzékelők</a></li>

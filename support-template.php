@@ -105,7 +105,6 @@ get_header();
                             wp_reset_postdata();
                         endif;
                         ?>
-                </div>
             </div>
         </section>
             <?php if (get_field("contact_form_type") != "disabled") {
