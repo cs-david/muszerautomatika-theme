@@ -59,7 +59,7 @@ get_header(); ?>
                         </div>
                         <h4 class="ul-dots">Termék kategóriák</h4>
                         <ul class="product-categories fancy-anchor">
-                            <li class="active-list-item"><a class="all-products" href="">Összes termék mutatása</a></li>
+                            <li class="active-list-item"><a class="all-products" href="">Összes termék</a></li>
                             <li><a href="">Érzékelők</a></li>
                             <li><a href="">Központi egységek</a></li>
                             <li><a href="">Hang és fényjelzők</a></li>

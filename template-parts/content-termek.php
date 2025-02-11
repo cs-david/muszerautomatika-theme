@@ -23,7 +23,7 @@
 
             if (!empty($terms) && !is_wp_error($terms)) {
                 echo '<ul class="product-categories fancy-anchor">';
-                echo '<li class="active-list-item"><a class="all-products" href="<?php echo esc_url(home_url("/termekek")); ?>">' . _e('Összes termék mutatása', 'muszerautomatika-theme') . '</a></li>';
+                echo '<li class="active-list-item"><a class="all-products" href="' . esc_url(home_url("/termekek")) . '">' . __('Összes termék', 'muszerautomatika-theme') . '</a></li>';
                 foreach ($terms as $term) {
                     $active_class = has_term($term->term_id, $taxonomy) ? 'active-list-item' : '';
                     if ($term->parent == 0) {
