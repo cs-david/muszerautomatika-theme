@@ -14,9 +14,9 @@ get_header(); ?>
     <?php endif; ?>
 
     <main id="primary">
- <!--        <section class="hero featured-img-section">
+        <section class="hero featured-img-section">
             <div class="wrap-wide">
-                <div class="owl-carousel">
+                <div class="owl-carousel owl-theme">
                         <?php
                         $args = array(
                             'post_type' => 'slides',
@@ -25,18 +25,21 @@ get_header(); ?>
                         $slides = new WP_Query($args);
                         if ($slides->have_posts()) :
                             while ($slides->have_posts()) : $slides->the_post(); ?>
-                                <figure>
-                                    <?php if (has_post_thumbnail()) : ?>
-                                        
-                                    <?php endif; ?>
-                                </figure>
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="full-img">
+                                <?php endif; ?>
                             <?php endwhile;
                             wp_reset_postdata();
                         endif;
                         ?>
-                  </div>                
+ 
+                  </div>
+                  <div class="nav-dots">
+                    <div class="my-dots"></div>
+                    <div class="my-nav"></div>
+                </div>                
             </div>
-        </section> -->
+        </section> 
         <section class="product-list-intro">
             <div class="wrap">
                 <div class="product-cols product-col-1">

@@ -121,6 +121,7 @@ function muszerautomatika_theme_scripts() {
 	wp_enqueue_style( 'muszerautomatika-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap', false);
     wp_enqueue_style('custom-styles', get_template_directory_uri() . '/css/styles.css', array(), null);
+    wp_enqueue_style( 'owl-carousel-css', get_template_directory_uri() . '/css/owl-carousel/owl.carousel.css', array(), true );
     wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/33aef8f39e.js', array(), null, true);
     wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/js/owl-carousel/owl.carousel.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'muszerautomatika-theme-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );

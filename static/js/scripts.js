@@ -22,9 +22,11 @@ jQuery(document).ready(function($) {
   $(".owl-carousel").owlCarousel({
     loop: true,
     items: 1,
-    autoplay: true,
-    autoplaySpeed: 1000,
+    nav:true,
+    autoplay: false,
     itemElement: "figure",
+    navContainer: ".my-nav",
+    dotsContainer: ".my-dots",
   });
 });
 
@@ -43,13 +45,12 @@ jQuery(document).ready(function($) {
       });
     }
 
-    const productName = document.querySelector('.product-name');
-    const subjectField = document.querySelector('#contact-form input[name="your-subject"]');
-    const formTitle = document.querySelector('#contact-form h2');
+    const expandHeader = document.querySelector('#expand-downloads');
+    const expandableContent = document.querySelector('.product-downloads-content');
 
-    if(productName && subjectField) {
-      formTitle.innerHTML = formTitle.textContent + '<span>' + productName.textContent + '</span>';
-      subjectField.value = formTitle.textContent;
-    }
+    expandHeader.addEventListener('click', (e) => { 
+      expandHeader.classList.toggle('expanded-h3');
+      expandableContent.classList.toggle('dl-expanded');
+    })
 
   });

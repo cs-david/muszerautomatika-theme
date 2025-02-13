@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-	<?php if(get_field('floating_cta')) : ?>
+	<?php if(get_field('floating_cta') == "true") : ?>
         <a class="fixed-offer-btn" href="#contact-form"><?php the_field('floating_cta_label'); ?></a>
     <?php endif; ?>
 	<main id="primary" class="site-main">
@@ -67,7 +67,6 @@ get_header();
                             if (is_array($image_service)) {
                                 echo '<img src="'. esc_url($image_service['url']) . '" alt="' . esc_attr($image_service['alt']) . '"/>';
                             } ?>
-                        </div>
                         </div>
                         <div class="services">
                             <img src="<?php echo get_template_directory_uri(); ?>/img/icon-service.svg"><h3><?php _e('Szakszerviz szolgáltatás', 'muszerautomatika-theme'); ?></h3>

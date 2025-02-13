@@ -91,59 +91,61 @@
                     </div>
                 </div>
                 <div class="product-downloads">
-                    <h3 class="ul-dots"><i class="fas fa-file-download"></i><?php _e('Letölthető<br> dokumentumok', 'muszerautomatika-theme'); ?></h3>
+                    <h3 id="expand-downloads"><i class="fas fa-file-download"></i><?php _e('Letölthető dokumentumok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                    <div class="product-downloads-content">
                     <h4><?php _e('Műszaki adatlapok', 'muszerautomatika-theme'); ?></h4>
                     <ul class="fancy-anchor">
-                    <?php 
-                    $tech_sheets = get_field('product_tech_sheets');
-                    if ($tech_sheets) {
-                        $tech_sheets_array = explode('\n', $tech_sheets);
-                        foreach ($tech_sheets_array as $sheet) {
-                            list($text, $href) = explode('|', $sheet);
-                            echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
-                        }
-                    }
-                    ?>
-                    </ul>
-                    <h4><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?></h4>
-                    <ul class="fancy-anchor">
                         <?php 
-                        $product_manuals = get_field('product_manuals');
-                        if ($product_manuals) {
-                            $product_manuals_array = explode('\n', $product_manuals);
-                            foreach ($product_manuals_array as $manual) {
-                                list($text, $href) = explode('|', $manual);
+                        $tech_sheets = get_field('product_tech_sheets');
+                        if ($tech_sheets) {
+                            $tech_sheets_array = explode('\n', $tech_sheets);
+                            foreach ($tech_sheets_array as $sheet) {
+                                list($text, $href) = explode('|', $sheet);
                                 echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
                             }
                         }
                         ?>
-                    </ul>
-                    <h4><?php _e('Engedélyek', 'muszerautomatika-theme'); ?></h4>
-                    <ul class="fancy-anchor">
-                        <?php 
-                        $product_licences = get_field('product_licences');
-                        if ($product_licences) {
-                            $product_licences_array = explode("\n", $product_licences);
-                            foreach ($product_licences_array as $licence) {
-                                list($text, $href) = explode('|', $licence);
-                                echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                        </ul>
+                        <h4><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?></h4>
+                        <ul class="fancy-anchor">
+                            <?php 
+                            $product_manuals = get_field('product_manuals');
+                            if ($product_manuals) {
+                                $product_manuals_array = explode('\n', $product_manuals);
+                                foreach ($product_manuals_array as $manual) {
+                                    list($text, $href) = explode('|', $manual);
+                                    echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                }
                             }
-                        }
-                        ?>
-                    </ul>
-                    <h4><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?></h4>
-                    <ul class="fancy-anchor">
-                        <?php 
-                        $product_installation_doc = get_field('product_installation_doc');
-                        if ($product_installation_doc) {
-                            $product_installation_doc_array = explode('\n', $product_installation_doc);
-                            foreach ($product_installation_doc_array as $doc) {
-                                list($text, $href) = explode('|', $doc);
-                                echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                            ?>
+                        </ul>
+                        <h4><?php _e('Engedélyek', 'muszerautomatika-theme'); ?></h4>
+                        <ul class="fancy-anchor">
+                            <?php 
+                            $product_licences = get_field('product_licences');
+                            if ($product_licences) {
+                                $product_licences_array = explode("\n", $product_licences);
+                                foreach ($product_licences_array as $licence) {
+                                    list($text, $href) = explode('|', $licence);
+                                    echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                }
                             }
-                        }
-                        ?>
-                    </ul>
+                            ?>
+                        </ul>
+                        <h4><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?></h4>
+                        <ul class="fancy-anchor">
+                            <?php 
+                            $product_installation_doc = get_field('product_installation_doc');
+                            if ($product_installation_doc) {
+                                $product_installation_doc_array = explode('\n', $product_installation_doc);
+                                foreach ($product_installation_doc_array as $doc) {
+                                    list($text, $href) = explode('|', $doc);
+                                    echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                }
+                            }
+                            ?>
+                        </ul>
+                    </div>
                 </div>
             </article>
             <div class="related-products">

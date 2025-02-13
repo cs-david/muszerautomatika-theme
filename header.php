@@ -67,3 +67,6 @@
             </nav>
         </div>
     </header>
+	<?php if((get_field('floating_cta') == "true") && !is_archive()) : ?>
+        <a class="fixed-offer-btn" href="#contact-form"><?php the_field('floating_cta_label'); ?></a>
+    <?php endif; ?>
