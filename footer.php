@@ -27,6 +27,9 @@
 						'taxonomy'   => 'termek_kategoria', // Your custom taxonomy name
 						'hide_empty' => false, // Show even empty categories
 						'parent'     => 0, // Get only top-level terms (no parent)
+						'meta_key' => 'cat_order',
+						'orderby'  => 'meta_value_num',
+						'order'    => 'ASC'
 					));
 
 					if (!empty($product_terms) && !is_wp_error($product_terms)) {

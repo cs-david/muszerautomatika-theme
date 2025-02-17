@@ -60,7 +60,7 @@ get_header();
                                     <div class="app-text">
                                         <h3 class="ul-dots"><?php echo esc_html($foa_term->name); ?></h3>
                                         <p><?php echo esc_html($foa_term->description); ?></p>
-                                        <a href="<?php the_field('foa_link', $foa_term); ?>" class="btn"><?php echo esc_html(__('kapcsolódó termékek', 'muszerautomatika-theme')); ?></a>
+                                        <a href="<?php echo esc_url(get_term_link($foa_term)); ?>" class="btn"><?php echo esc_html(__('kapcsolódó termékek', 'muszerautomatika-theme')); ?></a>
                                     </div>
                                 </div>
                             </div>

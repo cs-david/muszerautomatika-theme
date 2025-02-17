@@ -194,7 +194,7 @@ function ma_products_post_type() {
         'has_archive'        => true,
         'hierarchical'       => true,
         'menu_position'      => 5, 
-        'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields'), 
+        'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes'), 
         'menu_icon'          => 'dashicons-products',
         'show_in_rest'       => true, // Gutenberg támogatás
     );
@@ -206,8 +206,8 @@ add_action('init', 'ma_products_post_type');
 
 function ma_product_categories() {
     $labels = array(
-        'name'              => _x('Termék kategóriák', 'taxonomy general name', 'textdomain'),
-        'singular_name'     => _x('Termék kategória', 'taxonomy singular name', 'textdomain'),
+        'name'              => _x('Termékkategóriák', 'taxonomy general name', 'textdomain'),
+        'singular_name'     => _x('Termékkategória', 'taxonomy singular name', 'textdomain'),
     );
 
     $args = array(

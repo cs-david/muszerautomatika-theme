@@ -23,7 +23,9 @@ jQuery(document).ready(function($) {
     loop: true,
     items: 1,
     nav:true,
-    autoplay: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    autoplayHoverPause: true,
     itemElement: "figure",
     navContainer: ".my-nav",
     dotsContainer: ".my-dots",
@@ -48,9 +50,18 @@ jQuery(document).ready(function($) {
     const expandHeader = document.querySelector('#expand-downloads');
     const expandableContent = document.querySelector('.product-downloads-content');
 
+    if (expandHeader != null) { 
     expandHeader.addEventListener('click', (e) => { 
       expandHeader.classList.toggle('expanded-h3');
       expandableContent.classList.toggle('dl-expanded');
-    })
+    })};
+
+    const parentButtons = document.querySelectorAll('.has_subcat button');
+
+    parentButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+          button.parentElement.classList.toggle('cat-open');
+        });
+    });
 
   });

@@ -1,13 +1,13 @@
 <?php
 /**
- * The template for displaying product archive
+ * The template for displaying archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Műszer_Automatika_Sablon
  */
 
-get_header(); ?>
+ get_header(); ?>
 
     <?php if(get_field('floating_cta', 15)) : ?>
         <a class="fixed-offer-btn" href="#contact-form"><?php the_field('floating_cta_label', 15); ?></a>
@@ -43,10 +43,10 @@ get_header(); ?>
         <section class="product-list-intro">
             <div class="wrap">
                 <div class="product-cols product-col-1">
-                    <h1><span><?php echo get_the_title(15); ?></span></h1>
+				<?php the_archive_title( '<h1 class="page-title">', '</h1>' );?>
                 </div>
                 <div class="product-cols product-col-2">
-                    <?php echo get_post(15)->post_content; ?>
+                    <?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
                 </div>
             </div>
         </section>
@@ -54,58 +54,26 @@ get_header(); ?>
             <div class="wrap">
                 <div class="product-cols product-col-1">
                     <div class="category-filters">
-                        <div class="searchbox">
-                            <i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Keresés" class="search-field">
-                        </div>
-                        <h4 class="ul-dots"><?php _e('Termékkategóriák', 'muszerautomatika-theme'); ?></h4>
+                        <h4 class="ul-dots"><?php _e('Alkalmazási területek', 'muszerautomatika-theme'); ?></h4>
                         <?php
-                        $taxonomy = 'termek_kategoria';
+                        $taxonomy = 'alkalmazasi_teruletek';
                         $terms = get_terms(array(
                             'taxonomy' => $taxonomy,
                             'hide_empty' => false,
-                            'meta_key' => 'cat_order',
+                            'meta_key' => 'foa_order',
                             'orderby'  => 'meta_value_num',
                             'order'    => 'ASC'
                         ));
 
                         if (!empty($terms) && !is_wp_error($terms)) {
                             echo '<ul class="product-categories fancy-anchor">';
-                            echo '<li class="active-list-item"><a class="all-products" href="' . esc_url(home_url("/termekek")) . '">' . __('Összes termék', 'muszerautomatika-theme') . '</a></li>';
                             foreach ($terms as $term) {
-                                if ($term->parent == 0) {
-                                    $child_terms = get_terms(array(
-                                        'taxonomy' => $taxonomy,
-                                        'hide_empty' => false,
-                                        'parent' => $term->term_id,
-                                        'meta_key' => 'cat_order',
-                                        'orderby'  => 'meta_value_num',
-                                        'order'    => 'ASC'
-                                    ));
-                                    $has_subcat_class = !empty($child_terms) && !is_wp_error($child_terms) ? 'has_subcat' : '';
-                                    echo '<li class="' . $has_subcat_class . '"><a href="' . get_term_link($term) . '">' . $term->name . '</a>';
-                                    if (!empty($child_terms) && !is_wp_error($child_terms)) {
-                                        echo '<button class="expand-collapse-btn"><i class="fa-solid fa-circle-arrow-down"></i></button>';
-                                    }
-                                    if (!empty($child_terms) && !is_wp_error($child_terms)) {
-                                        echo '<ul class="sub-categories">';
-                                        foreach ($child_terms as $child_term) {
-                                            echo '<li><a href="' . get_term_link($child_term) . '">' . $child_term->name . '</a></li>';
-                                        }
-                                        echo '</ul>';
-                                    }
-                                    echo '</li>';
-                                }
+                                $active_class = (is_tax($taxonomy, $term->term_id)) ? 'active-list-item' : '';
+                                echo '<li class="' . $active_class . '"><a href="' . get_term_link($term) . '">' . $term->name . '</a></li>';
                             }
                             echo '</ul>';
                         }
                         ?>
-                        <h4 class="ul-dots">Szűrés alkalmazási terület szerint</h4>
-                        <ul class="checkbox-list">
-                            <li><input type="checkbox" id="app-1" name="app-1" value="app-1"><label for="app-1">Kazánházi földgázérzékelés</label></li>
-                            <li><input type="checkbox" id="app-2" name="app-2" value="app-2"><label for="app-2">Garázs szén-monoxid és nitrogén-dioxid érzékelés</label></li>
-                            <li><input type="checkbox" id="app-3" name="app-3" value="app-3"><label for="app-3">Technológiai gázérzékelés</label></li>
-                            <li><input type="checkbox" id="app-4" name="app-4" value="app-4"><label for="app-4">Lakótéri gázérzékelés</label></li>
-                        </ul>
                     </div>
                 </div>
                 <div class="product-cols product-col-2">

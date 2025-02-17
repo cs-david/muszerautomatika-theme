@@ -13,26 +13,36 @@
     <div class="wrap">
         <div class="product-cols product-col-1">
             <div class="category-filters">
-                <h4 class="ul-dots"><?php _e('Termék kategóriák', 'muszerautomatika-theme'); ?></h4>
+                <h4 class="ul-dots"><?php _e('Termékkategóriák', 'muszerautomatika-theme'); ?></h4>
             <?php
             $taxonomy = 'termek_kategoria';
             $terms = get_terms(array(
                 'taxonomy' => $taxonomy,
                 'hide_empty' => false,
+                'meta_key' => 'cat_order',
+                'orderby'  => 'meta_value_num',
+                'order'    => 'ASC'
             ));
 
             if (!empty($terms) && !is_wp_error($terms)) {
                 echo '<ul class="product-categories fancy-anchor">';
-                echo '<li class="active-list-item"><a class="all-products" href="' . esc_url(home_url("/termekek")) . '">' . __('Összes termék', 'muszerautomatika-theme') . '</a></li>';
+                echo '<li><a class="all-products" href="' . esc_url(home_url("/termekek")) . '">' . __('Összes termék', 'muszerautomatika-theme') . '</a></li>';
                 foreach ($terms as $term) {
-                    $active_class = has_term($term->term_id, $taxonomy) ? 'active-list-item' : '';
+                    $active_class = has_term($term->term_id, $taxonomy) ? 'active-list-item cat-open' : '';
                     if ($term->parent == 0) {
-                        echo '<li class="' . $active_class . '"><a href="' . get_term_link($term) . '">' . $term->name . '</a>';
                         $child_terms = get_terms(array(
                             'taxonomy' => $taxonomy,
                             'hide_empty' => false,
                             'parent' => $term->term_id,
+                            'meta_key' => 'cat_order',
+                            'orderby'  => 'meta_value_num',
+                            'order'    => 'ASC'
                         ));
+                        $has_subcat_class = !empty($child_terms) && !is_wp_error($child_terms) ? 'has_subcat' : '';
+                        echo '<li class="' . $active_class . ' ' . $has_subcat_class . '"><a href="' . get_term_link($term) . '">' . $term->name . '</a>';
+                        if (!empty($child_terms) && !is_wp_error($child_terms)) {
+                            echo '<button class="expand-collapse-btn"><i class="fa-solid fa-circle-arrow-down"></i></button>';
+                        }
                         if (!empty($child_terms) && !is_wp_error($child_terms)) {
                             echo '<ul class="sub-categories">';
                             foreach ($child_terms as $child_term) {
@@ -54,11 +64,22 @@
                 <?php the_title( '<h1 class="product-name">', '</h1>' ); ?>
                 <div class="product-head">
                     <div class="product-card-img">
-                        <?php $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" )[0]; ?>
-                        <img src="<?php echo $thumbnail; ?>" alt="<?php _e('termék fotó - kiemelt kép', 'muszerautomatika-theme'); ?>" class="featured-img" />
-                        <?php if(get_field("atex_label")) : ?>
-                            <img class="atex-img" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/certs/atex-logo.svg" alt="<?php _e('ATEX direktíva szerinti termék', 'muszerautomatika-theme'); ?>"/>
-                        <?php endif; ?>
+
+                            <?php if(has_post_thumbnail()) :
+                                
+                            $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" )[0]; ?>
+                            <img src="<?php echo $thumbnail; ?>" alt="<?php _e('termék fotó - kiemelt kép', 'muszerautomatika-theme'); ?>" class="featured-img" />
+                            <?php else : ?>
+                                <div class="placeholder-img">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo-white.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/>
+                                </div>
+                            <?php endif; ?>
+                            <?php if(get_field("atex_label")) : ?>
+                                <img class="atex-img" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/certs/atex-logo.svg" alt="<?php _e('ATEX direktíva szerinti termék', 'muszerautomatika-theme'); ?>"/>
+                            <?php endif; ?>
+
+                        <?php if(get_field('product_gallery') != null) : ?>
+
                         <div class="product-card-gallery">
 
                             <img src="<?php echo $thumbnail; ?>" alt="<?php _e('termék fotó', 'muszerautomatika-theme'); ?>" class="current-gallery-item" />
@@ -74,6 +95,8 @@
                             <?php endif; ?>
 
                         </div>
+
+                        <?php endif; ?>
                     </div>
                     <div class="product-card-content">
                         <?php the_content(); ?>
@@ -148,29 +171,37 @@
                     </div>
                 </div>
             </article>
-            <div class="related-products">
-                <h3 class="ul-dots"><i class="fa-solid fa-link"></i><?php _e('Kapcsolódó termékek', 'muszerautomatika-theme'); ?></h3>
-                <div class="related-cards">
-                    <article class="related-card">
-                        <a href="products-single.html">
-                            <img src="media/minta-erzekelo.jpg" alt="Gázérzékelő készülék"/>
-                            <h4>Gázérzékelő (E-MC-E1)</h4>
-                        </a>
-                    </article>
-                    <article class="related-card">
-                        <a href="products-single.html">
-                            <img src="media/minta-erzekelo.jpg" alt="Gázérzékelő készülék"/>
-                            <h4>Gázérzékelő (E-MC-E1)</h4>
-                        </a>
-                    </article>
-                    <article class="related-card">
-                        <a href="products-single.html">
-                            <img src="media/minta-erzekelo.jpg" alt="Gázérzékelő készülék"/>
-                            <h4>Gázérzékelő (E-MC-E1)</h4>
-                        </a>
-                    </article><!-- #post-<?php the_ID(); ?> -->
-                </div>
-            </div>
+                <?php
+                    $related_products = get_field('related_products');
+                    if( $related_products ): ?>
+                    <div class="related-products">
+                        <h3 class="ul-dots"><i class="fa-solid fa-link"></i><?php _e('Kapcsolódó termékek', 'muszerautomatika-theme'); ?></h3>
+                        <div class="related-cards">
+                        <?php foreach( $related_products as $post ): 
+
+                            // Setup this post for WP functions (variable must be named $post).
+                            setup_postdata($post); ?>
+
+                            <article class="related-card">
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php if(has_post_thumbnail()) :
+                                    
+                                    $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" )[0]; ?>
+                                    <img src="<?php echo $thumbnail; ?>" alt="<?php _e('termék fotó - kiemelt kép', 'muszerautomatika-theme'); ?>" class="featured-img" />
+                                    <?php else : ?>
+                                        <div class="placeholder-img">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo-white.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/>
+                                        </div>
+                                    <?php endif; ?>
+                                    <h4><?php the_title(); ?></h4>
+                                </a>
+                            </article>
+                        <?php endforeach; ?>
+                        </div></div>
+                        <?php 
+                        // Reset the global post object so that the rest of the page works correctly.
+                        wp_reset_postdata(); ?>
+                <?php endif; ?>
         </div>
     </div>
 </section>
