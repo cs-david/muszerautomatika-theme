@@ -112,7 +112,22 @@
                 </div>
                 <div class="product-cols product-col-2">
                     <div class="product-card-list">
-                    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                    <?php
+                    $current_taxonomy = get_queried_object()->taxonomy;
+                    $args = array(
+                        'post_type' => 'termek',
+                        'orderby' => 'menu_order',
+                        'order' => 'ASC',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => $current_taxonomy,
+                                'field'    => 'term_id',
+                                'terms'    => get_queried_object_id(),
+                            ),
+                        ),
+                    );
+                    $query = new WP_Query($args);
+                    if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
                         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                             <div class="product-card-img">
 

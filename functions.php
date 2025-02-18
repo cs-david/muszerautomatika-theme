@@ -93,6 +93,18 @@ function muszerautomatika_theme_setup() {
 }
 add_action( 'after_setup_theme', 'muszerautomatika_theme_setup' );
 
+function wpacg_mszer_automatika_admin_color_scheme() {
+    //Get the theme directory
+    $theme_dir = get_stylesheet_directory_uri();
+  
+    //Műszer Automatika
+    wp_admin_css_color( 'mszer_automatika', __( 'Műszer Automatika' ),
+      $theme_dir . '/mszer_automatika.css',
+      array( '#212e5b', '#e5f8ff', '#c41d48' , '#070b1a')
+    );
+  }
+  add_action('admin_init', 'wpacg_mszer_automatika_admin_color_scheme');
+
 
 /**
  * Register widget area.
