@@ -105,26 +105,20 @@ function wpacg_mszer_automatika_admin_color_scheme() {
   }
   add_action('admin_init', 'wpacg_mszer_automatika_admin_color_scheme');
 
+add_action('admin_menu', function() {
+    remove_menu_page('edit.php');
+    remove_menu_page('edit-comments.php');
+    remove_submenu_page('themes.php', 'widgets.php');
+});
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function muszerautomatika_theme_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'muszerautomatika-theme' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'muszerautomatika-theme' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'muszerautomatika_theme_widgets_init' );
+add_action('init', function() {
+    remove_post_type_support('post', 'comments');
+    remove_post_type_support('page', 'comments');
+});
+
+// Close comments on the front end
+add_filter('comments_open', '__return_false');
+add_filter('pings_open', '__return_false');
 
 /**
  * Enqueue scripts and styles.

@@ -14,32 +14,6 @@
     <?php endif; ?>
 
     <main id="primary">
-        <section class="hero featured-img-section">
-            <div class="wrap-wide">
-                <div class="owl-carousel owl-theme">
-                        <?php
-                        $args = array(
-                            'post_type' => 'slides',
-                            'posts_per_page' => -1
-                        );
-                        $slides = new WP_Query($args);
-                        if ($slides->have_posts()) :
-                            while ($slides->have_posts()) : $slides->the_post(); ?>
-                                <?php if (has_post_thumbnail()) : ?>
-                                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="full-img">
-                                <?php endif; ?>
-                            <?php endwhile;
-                            wp_reset_postdata();
-                        endif;
-                        ?>
- 
-                  </div>
-                  <div class="nav-dots">
-                    <div class="my-dots"></div>
-                    <div class="my-nav"></div>
-                </div>                
-            </div>
-        </section> 
         <section class="product-list-intro">
             <div class="wrap">
                 <div class="product-cols product-col-1">
@@ -150,14 +124,16 @@
                                     <?php
                                     $terms = get_the_terms($post->ID, 'termek_kategoria');
                                     if ($terms && !is_wp_error($terms)) :
+                                        // Sort terms by hierarchy
+                                        usort($terms, function($a, $b) {
+                                            return ($a->parent === $b->parent) ? 0 : ($a->parent < $b->parent ? -1 : 1);
+                                        });
+
                                         $lowest_level_terms = array();
                                         foreach ($terms as $term) {
-                                            if ($term->parent != 0) {
-                                                $lowest_level_terms[] = $term->name;
-                                            } else {
-                                                $lowest_level_terms[] = $term->name;
-                                            }
+                                            $lowest_level_terms[] = $term->name;
                                         }
+
                                         if (!empty($lowest_level_terms)) {
                                             echo '<span class="category-label">' . implode(' | ', $lowest_level_terms) . '</span>';
                                         }

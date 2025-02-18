@@ -140,14 +140,16 @@ get_header(); ?>
                                     <?php
                                     $terms = get_the_terms($post->ID, 'termek_kategoria');
                                     if ($terms && !is_wp_error($terms)) :
+                                        // Sort terms by hierarchy
+                                        usort($terms, function($a, $b) {
+                                            return ($a->parent === $b->parent) ? 0 : ($a->parent < $b->parent ? -1 : 1);
+                                        });
+
                                         $lowest_level_terms = array();
                                         foreach ($terms as $term) {
-                                            if ($term->parent != 0) {
-                                                $lowest_level_terms[] = $term->name;
-                                            } else {
-                                                $lowest_level_terms[] = $term->name;
-                                            }
+                                            $lowest_level_terms[] = $term->name;
                                         }
+
                                         if (!empty($lowest_level_terms)) {
                                             echo '<span class="category-label">' . implode(' | ', $lowest_level_terms) . '</span>';
                                         }
