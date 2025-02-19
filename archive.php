@@ -76,12 +76,20 @@
                         }
                         ?>
                         <h4 class="ul-dots">Szűrés alkalmazási terület szerint</h4>
-                        <ul class="checkbox-list">
-                            <li><input type="checkbox" id="app-1" name="app-1" value="app-1"><label for="app-1">Kazánházi földgázérzékelés</label></li>
-                            <li><input type="checkbox" id="app-2" name="app-2" value="app-2"><label for="app-2">Garázs szén-monoxid és nitrogén-dioxid érzékelés</label></li>
-                            <li><input type="checkbox" id="app-3" name="app-3" value="app-3"><label for="app-3">Technológiai gázérzékelés</label></li>
-                            <li><input type="checkbox" id="app-4" name="app-4" value="app-4"><label for="app-4">Lakótéri gázérzékelés</label></li>
-                        </ul>
+                        <?php
+                        $alkalmazasi_teruletek = get_terms(array(
+                            'taxonomy' => 'alkalmazasi_teruletek',
+                            'hide_empty' => false,
+                        ));
+
+                        if (!empty($alkalmazasi_teruletek) && !is_wp_error($alkalmazasi_teruletek)) {
+                            echo '<ul class="foa-filter">';
+                            foreach ($alkalmazasi_teruletek as $terulet) {
+                                echo '<li><input type="checkbox" class="foa-item" id="app-' . $terulet->term_id . '" name="app-' . $terulet->term_id . '" value="' . $terulet->slug . '"><label for="app-' . $terulet->term_id . '">' . $terulet->name . '</label></li>';
+                            }
+                            echo '</ul>';
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="product-cols product-col-2">

@@ -32,7 +32,10 @@ jQuery(document).ready(function($) {
   });
 });
 
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Product Image Gallery
+
     const mainImage = document.querySelector('.featured-img');
     const thumbnails = document.querySelectorAll('.product-card-gallery img');
 
@@ -46,6 +49,9 @@ jQuery(document).ready(function($) {
         });
       });
     }
+
+    // Accordion
+
     const accordion = document.querySelectorAll('.accordion-section');
 
     if (accordion) {
@@ -54,13 +60,11 @@ jQuery(document).ready(function($) {
   
         const isActive = acc.querySelector('.accordion-section-header').classList.contains("expanded-accordion-section-header");
 
-        // Close all panels
         accordion.forEach((allAcc) => {
           allAcc.querySelector('.accordion-section-header').classList.remove('expanded-accordion-section-header');
           allAcc.querySelector('.accordion-section-content').classList.remove('expanded-accordion-section-content');
         });
 
-        // Toggle current panel
         if (!isActive) {
           acc.querySelector('.accordion-section-header').classList.toggle('expanded-accordion-section-header');
           acc.querySelector('.accordion-section-content').classList.toggle('expanded-accordion-section-content');
@@ -69,7 +73,10 @@ jQuery(document).ready(function($) {
       });
     });
   }
-    const parentButtons = document.querySelectorAll('.has_subcat button');
+
+  // Product Category Menu
+  
+  const parentButtons = document.querySelectorAll('.has_subcat button');
 
     parentButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
@@ -77,4 +84,40 @@ jQuery(document).ready(function($) {
         });
     });
 
-  });
+  // FOA filter
+
+  const allProducts = document.querySelectorAll('.type-termek');
+
+  const allFoaInput = document.querySelectorAll('.foa-item');
+
+  allFoaInput.forEach(input => {
+    input.addEventListener('change', (e) => {
+      let activeFoas = [];
+      allFoaInput.forEach((input) => {
+        if(input.checked) {
+          activeFoas.push(input.value);
+        }
+      });
+
+      if(activeFoas.length != 0) {
+        allProducts.forEach(product => {
+          product.classList.add('hide-product');
+        })
+  
+        activeFoas.forEach(product => {
+          const hideThese = document.querySelectorAll('.alkalmazasi_teruletek-' + product);
+          hideThese.forEach(hideit => {
+            hideit.classList.remove('hide-product');
+          })
+        })
+      } else {
+        allProducts.forEach(product => {
+          product.classList.remove('hide-product');
+        })
+      }
+
+    })
+  })
+
+
+});
