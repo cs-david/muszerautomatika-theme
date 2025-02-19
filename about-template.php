@@ -37,7 +37,7 @@ get_header();
             </section>
             <section class="services-section">
                 <div class="wrap-narrow">
-                    <div class="service-subsection">
+                    <div class="service-subsection" id="dev">
                         <div class="service-subsection-img">
                             <?php $image_dev = get_field('dev_img');
                             if (is_array($image_dev)) {
@@ -49,7 +49,7 @@ get_header();
                         </div>
                         <?php the_field("dev_desc"); ?>
                     </div>
-                    <div class="service-subsection">
+                    <div class="service-subsection" id="manu">
                         <div class="service-subsection-img">
                             <?php $image_manu = get_field('manu_img');
                             if (is_array($image_manu)) {
@@ -61,7 +61,7 @@ get_header();
                         </div>
                         <?php the_field("manu_desc"); ?>
                     </div>
-                    <div class="service-subsection">
+                    <div class="service-subsection" id="service">
                         <div class="service-subsection-img">
                         <?php $image_service = get_field('service_img');
                             if (is_array($image_service)) {

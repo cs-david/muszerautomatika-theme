@@ -46,16 +46,29 @@ jQuery(document).ready(function($) {
         });
       });
     }
+    const accordion = document.querySelectorAll('.accordion-section');
 
-    const expandHeader = document.querySelector('#expand-downloads');
-    const expandableContent = document.querySelector('.product-downloads-content');
+    if (accordion) {
+    accordion.forEach((acc) => {
+      acc.querySelector('.accordion-section-header').addEventListener('click', () => {
+  
+        const isActive = acc.querySelector('.accordion-section-header').classList.contains("expanded-accordion-section-header");
 
-    if (expandHeader != null) { 
-    expandHeader.addEventListener('click', (e) => { 
-      expandHeader.classList.toggle('expanded-h3');
-      expandableContent.classList.toggle('dl-expanded');
-    })};
+        // Close all panels
+        accordion.forEach((allAcc) => {
+          allAcc.querySelector('.accordion-section-header').classList.remove('expanded-accordion-section-header');
+          allAcc.querySelector('.accordion-section-content').classList.remove('expanded-accordion-section-content');
+        });
 
+        // Toggle current panel
+        if (!isActive) {
+          acc.querySelector('.accordion-section-header').classList.toggle('expanded-accordion-section-header');
+          acc.querySelector('.accordion-section-content').classList.toggle('expanded-accordion-section-content');
+        }
+
+      });
+    });
+  }
     const parentButtons = document.querySelectorAll('.has_subcat button');
 
     parentButtons.forEach((button) => {

@@ -433,18 +433,6 @@ function ma_customizer_settings($wp_customize) {
         'type'        => 'text',
     ));
 
-    $wp_customize->add_setting('sales_address_map_embed', array(
-        'default'           => 'Google Maps beágyazó kód',
-        'sanitize_callback' => 'sanitize_text_field',
-        'transport'         => 'refresh',
-    ));
-
-    $wp_customize->add_control('sales_address_map_embed', array(
-        'label'       => 'Google Maps beágyazó kód',
-        'section'     => 'sales_contact_section',
-        'type'        => 'text',
-    ));
-
     // Shipping Address
     $wp_customize->add_setting('shipping_address', array(
         'default'           => 'Szállítási cím',
@@ -466,18 +454,6 @@ function ma_customizer_settings($wp_customize) {
 
     $wp_customize->add_control('sales_shipping_map', array(
         'label'       => 'Google Maps Link',
-        'section'     => 'sales_contact_section',
-        'type'        => 'text',
-    ));
-
-    $wp_customize->add_setting('sales_shipping_map_embed', array(
-        'default'           => 'Google Maps beágyazó kód',
-        'sanitize_callback' => 'sanitize_text_field',
-        'transport'         => 'refresh',
-    ));
-
-    $wp_customize->add_control('sales_shipping_map_embed', array(
-        'label'       => 'Google Maps beágyazó kód',
         'section'     => 'sales_contact_section',
         'type'        => 'text',
     ));

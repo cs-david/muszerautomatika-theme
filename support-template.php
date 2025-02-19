@@ -28,80 +28,139 @@ get_header();
             </section>
             <section class="doc-downloads">
             <div class="wrap">
-                <h1><?php _e('LETÖLTHETŐ DOKUMENTUMOK', 'muszerautomatika-theme'); ?></h1>
+                <h1><?php the_title(); ?></h1>
+                <h2><?php _e('LETÖLTHETŐ DOKUMENTUMOK', 'muszerautomatika-theme'); ?></h2>
                     <?php
                         $args = array(
                             'post_type' => 'termek',
                             'posts_per_page' => -1
                         );
-                        $termek_query = new WP_Query($args);
+                        $termek_query = new WP_Query($args);?>
 
-                        if ($termek_query->have_posts()) :
-                            while ($termek_query->have_posts()) : $termek_query->the_post(); ?>
-                            <div class="downloads-subsection">
-                                <h3><?php _e('Műszaki Adatlapok', 'muszerautomatika-theme'); ?></h3>
-                                <ul class="fancy-anchor"> 
-                                <?php
-                                $tech_sheets = get_field('product_tech_sheets');
-                                if ($tech_sheets) {
-                                    $tech_sheets_array = explode('\n', $tech_sheets);
-                                    foreach ($tech_sheets_array as $sheet) {
-                                        list($text, $href) = explode('|', $sheet);
-                                        echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                    <div class="accordion-section">
+                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Műszaki Adatlapok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                        <div class="accordion-section-content">
+                            <ul class="fancy-anchor"> 
+
+                            <?php if ($termek_query->have_posts()) :
+                                while ($termek_query->have_posts()) : $termek_query->the_post(); 
+
+                                    $tech_sheets = get_field('product_tech_sheets');
+                                    if ($tech_sheets) {
+                                        $tech_sheets_array = explode("\n", $tech_sheets);
+                                        foreach ($tech_sheets_array as $sheet) {
+                                            list($text, $href) = explode('|', $sheet);
+                                            if (!isset($seen_hrefs[$href])) {
+                                                echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                                $seen_hrefs[$href] = true;
+                                            }                                    }
+                                    } 
+                                endwhile;
+                                wp_reset_postdata();
+                                endif;
+                            ?>
+                            </ul>
+                        </div>
+                    </div>
+                            
+                    <div class="accordion-section">
+                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                        <div class="accordion-section-content">
+                            <ul class="fancy-anchor">
+                            
+                            <?php if ($termek_query->have_posts()) :
+                                while ($termek_query->have_posts()) : $termek_query->the_post(); 
+
+                                    $product_manuals = get_field('product_manuals');
+
+                                    if ($product_manuals) {
+                                        $product_manuals_array = explode("\n", $product_manuals);;
+                                        foreach ($product_manuals_array as $manual) {
+                                            list($text, $href) = explode('|', $manual);
+                                            if (!isset($seen_hrefs[$href])) {
+                                                echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                                $seen_hrefs[$href] = true;
+                                            }
+                                        }
                                     }
-                                } ?>
-                                </ul>
-                            </div>
-                            <hr />
-                            <div class="downloads-subsection">
-                                <h3><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?></h3>
-                                <ul class="fancy-anchor"> 
-                                <?php
-                                $product_manuals = get_field('product_manuals');
-                                if ($product_manuals) {
-                                    $product_manuals_array = explode('\n', $product_manuals);
-                                    foreach ($product_manuals_array as $manual) {
-                                        list($text, $href) = explode('|', $manual);
-                                        echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                endwhile;
+                                wp_reset_postdata();
+                                endif;
+                            ?>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-section">
+                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Engedélyek', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                        <div class="accordion-section-content">
+                            <ul class="fancy-anchor"> 
+                                    
+                            <?php if ($termek_query->have_posts()) :
+                                while ($termek_query->have_posts()) : $termek_query->the_post(); 
+
+                                    $product_licences = get_field('product_licences');
+                                    if ($product_licences) {
+                                        $product_licences_array = explode("\n", $product_licences);
+                                        foreach ($product_licences_array as $licence) {
+                                            list($text, $href) = explode('|', $licence);
+                                            if (!isset($seen_hrefs[$href])) {
+                                                echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                                $seen_hrefs[$href] = true;
+                                            }                                    }
                                     }
-                                } ?>
-                                </ul>
-                            </div>
-                            <hr />
-                            <div class="downloads-subsection">
-                                <h3><?php _e('Engedélyek', 'muszerautomatika-theme'); ?></h3>
-                                <ul class="fancy-anchor"> 
-                                <?php
-                                $product_licences = get_field('product_licences');
-                                if ($product_licences) {
-                                    $product_licences_array = explode("\n", $product_licences);
-                                    foreach ($product_licences_array as $licence) {
-                                        list($text, $href) = explode('|', $licence);
-                                        echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                endwhile;
+                                wp_reset_postdata();
+                                endif;
+                            ?>        
+                            </ul>
+                        </div>
+                    </div>
+                            
+                    <div class="accordion-section">
+                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                        <div class="accordion-section-content">
+                            <ul class="fancy-anchor"> 
+                                    
+                            <?php if ($termek_query->have_posts()) :
+                                while ($termek_query->have_posts()) : $termek_query->the_post(); 
+
+                                    $product_installation_doc = get_field('product_installation_doc');
+                                    if ($product_installation_doc) {
+                                        $product_installation_doc_array = explode("\n", $product_installation_doc);
+                                        foreach ($product_installation_doc_array as $doc) {
+                                            list($text, $href) = explode('|', $doc);
+                                            if (!isset($seen_hrefs[$href])) {
+                                                echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                                $seen_hrefs[$href] = true;
+                                            }                                    }
                                     }
+                                endwhile;
+                                wp_reset_postdata();
+                                endif;
+                            ?>        
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-section">
+                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php echo get_field('other_accordion_heading') ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                        <div class="accordion-section-content">
+                            <ul class="fancy-anchor">
+                                <?php 
+                                $misc_docs = get_field('misc_docs');
+                                if ($misc_docs) {
+                                    $misc_docs_array = explode("\n", $misc_docs);
+                                    foreach ($misc_docs_array as $misc_doc) {
+                                        list($text, $href) = explode('|', $misc_doc);
+                                        if (!isset($seen_hrefs[$href])) {
+                                            echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
+                                            $seen_hrefs[$href] = true;
+                                        }                                    }
                                 } ?>
-                                </ul>
-                            </div>
-                            <hr />
-                            <div class="downloads-subsection">
-                                <h3><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?></h3>
-                                <ul class="fancy-anchor"> 
-                                <?php
-                                $product_installation_doc = get_field('product_installation_doc');
-                                if ($product_installation_doc) {
-                                    $product_installation_doc_array = explode('\n', $product_installation_doc);
-                                    foreach ($product_installation_doc_array as $doc) {
-                                        list($text, $href) = explode('|', $doc);
-                                        echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
-                                    }
-                                } ?>
-                                </ul>
-                            </div>
-                            <hr />
-                            <?php endwhile;
-                            wp_reset_postdata();
-                        endif;
-                        ?>
+                            </ul>
+                        </div>
+                    </div>
             </div>
         </section>
             <?php if (get_field("contact_form_type") != "disabled") {

@@ -113,9 +113,9 @@
                         <a href="#contact-form" class="btn red"><?php _e('ajánlatot kérek', 'muszerautomatika-theme'); ?></a>
                     </div>
                 </div>
-                <div class="product-downloads">
-                    <h3 id="expand-downloads"><i class="fas fa-file-download"></i><?php _e('Letölthető dokumentumok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
-                    <div class="product-downloads-content">
+                <div class="accordion-section">
+                    <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Letölthető dokumentumok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                    <div class="accordion-section-content">
                     <h4><?php _e('Műszaki adatlapok', 'muszerautomatika-theme'); ?></h4>
                     <ul class="fancy-anchor">
                         <?php 

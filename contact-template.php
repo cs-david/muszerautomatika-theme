@@ -115,11 +115,11 @@ get_header();
                         <div class="maps-container">
                             <div class="map-1">
                                 <p><?php echo get_theme_mod('sales_address'); ?></p>
-                                <iframe src="<?php echo get_theme_mod('sales_address_map_embed'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              
+                                <?php echo get_field('contact_map_1'); ?>
                             </div>
                             <div class="map-2">
                                 <p><?php echo get_theme_mod('shipping_address'); ?></p>
-                                <iframe src="<?php echo get_theme_mod('sales_shipping_map_embed'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              
+                                <?php echo get_field('contact_map_2'); ?>              
                             </div>
                         </div>
                     </div>
