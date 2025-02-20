@@ -116,6 +116,7 @@
                 <div class="accordion-section">
                     <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Letölthető dokumentumok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
                     <div class="accordion-section-content">
+                    <?php if('product_tech_sheets') : ?>
                     <h4><?php _e('Műszaki adatlapok', 'muszerautomatika-theme'); ?></h4>
                     <ul class="fancy-anchor">
                         <?php 
@@ -129,6 +130,8 @@
                         }
                         ?>
                         </ul>
+                        <?php endif; ?>
+                        <?php if('product_manuals') : ?>
                         <h4><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?></h4>
                         <ul class="fancy-anchor">
                             <?php 
@@ -142,6 +145,8 @@
                             }
                             ?>
                         </ul>
+                        <?php endif; ?>
+                        <?php if('product_licences') : ?>
                         <h4><?php _e('Engedélyek', 'muszerautomatika-theme'); ?></h4>
                         <ul class="fancy-anchor">
                             <?php 
@@ -155,6 +160,8 @@
                             }
                             ?>
                         </ul>
+                        <?php endif; ?>
+                        <?php if('product_installation_doc') : ?>
                         <h4><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?></h4>
                         <ul class="fancy-anchor">
                             <?php 
@@ -168,6 +175,7 @@
                             }
                             ?>
                         </ul>
+                        <?php endif; ?>
                     </div>
                 </div>
             </article>

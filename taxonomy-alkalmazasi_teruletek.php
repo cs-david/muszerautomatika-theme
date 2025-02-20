@@ -27,28 +27,9 @@
         <section class="product-list-section">
             <div class="wrap">
                 <div class="product-cols product-col-1">
-                    <div class="category-filters">
-                        <h4 class="ul-dots"><?php _e('Alkalmazási területek', 'muszerautomatika-theme'); ?></h4>
-                        <?php
-                        $taxonomy = 'alkalmazasi_teruletek';
-                        $terms = get_terms(array(
-                            'taxonomy' => $taxonomy,
-                            'hide_empty' => false,
-                            'meta_key' => 'foa_order',
-                            'orderby'  => 'meta_value_num',
-                            'order'    => 'ASC'
-                        ));
 
-                        if (!empty($terms) && !is_wp_error($terms)) {
-                            echo '<ul class="product-categories fancy-anchor">';
-                            foreach ($terms as $term) {
-                                $active_class = (is_tax($taxonomy, $term->term_id)) ? 'active-list-item' : '';
-                                echo '<li class="' . $active_class . '"><a href="' . get_term_link($term) . '">' . $term->name . '</a></li>';
-                            }
-                            echo '</ul>';
-                        }
-                        ?>
-                    </div>
+                    <?php get_template_part( 'template-parts/sidebar', 'foa' ); ?>
+                
                 </div>
                 <div class="product-cols product-col-2">
                     <div class="product-card-list">
@@ -66,52 +47,11 @@
                         ),
                     );
                     $query = new WP_Query($args);
-                    if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
-                        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                            <div class="product-card-img">
-
-                                <?php if(has_post_thumbnail()) :
-                                
-                                $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" )[0]; ?>
-                                <img src="<?php echo $thumbnail; ?>" alt="<?php _e('termék fotó - kiemelt kép', 'muszerautomatika-theme'); ?>" class="featured-img" />
-                                <?php else : ?>
-                                    <div class="placeholder-img">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo-white.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if(get_field("atex_label")) : ?>
-                                    <img class="atex-img" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/certs/atex-logo.svg" alt="<?php _e('ATEX direktíva szerinti termék', 'muszerautomatika-theme'); ?>"/>
-                                <?php endif; ?>
-                            </div>
-                            <div class="product-card-content">
-                                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                                <div class="product-category">
-                                    <?php
-                                    $terms = get_the_terms($post->ID, 'termek_kategoria');
-                                    if ($terms && !is_wp_error($terms)) :
-                                        // Sort terms by hierarchy
-                                        usort($terms, function($a, $b) {
-                                            return ($a->parent === $b->parent) ? 0 : ($a->parent < $b->parent ? -1 : 1);
-                                        });
-
-                                        $lowest_level_terms = array();
-                                        foreach ($terms as $term) {
-                                            $lowest_level_terms[] = $term->name;
-                                        }
-
-                                        if (!empty($lowest_level_terms)) {
-                                            echo '<span class="category-label">' . implode(' | ', $lowest_level_terms) . '</span>';
-                                        }
-                                    endif;
-                                    ?>
-                                </div>
-                                <div class="card-excerpt">
-                                    <?php the_content(); ?>
-                                </div>
-                                <a href="<?php the_permalink(); ?>" class="btn"><?php _e('tovább a termékhez', 'text-domain'); ?></a>
-                            </div>
-                        </article>
-                    <?php endwhile; else : ?>
+                    if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); 
+                        
+                        get_template_part( 'template-parts/content', 'termek-loop' );
+                    
+                    endwhile; else : ?>
                         <p><?php _e('Nincsenek projektek.'); ?></p>
                     <?php endif; ?>
                     </div>

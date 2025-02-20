@@ -38,19 +38,23 @@ get_header();
 					$foa_page_terms = get_terms(array(
 						'taxonomy'   => 'alkalmazasi_teruletek', // Your custom taxonomy name
 						'hide_empty' => false, // Show even empty categories
-						'parent'     => 0, // Get only top-level terms (no parent)
+						'parent'     => 0,
+                        'meta_key' => 'foa_order',
+                        'orderby'  => 'meta_value_num',
+                        'order'    => 'ASC'
 					));
 
 					if (!empty($foa_page_terms) && !is_wp_error($foa_page_terms)) {
 
 						foreach ($foa_page_terms as $foa_term) { 
                             
-                            $image = get_field('foa_img', $foa_term);                  
+                            $image = get_field('foa_img', $foa_term);
+                            $foa_order = get_field('foa_order', $foa_term);                  
                         
                         ?>
 
                         <div class="app-section" id="<?php echo esc_html($foa_term->slug); ?>">
-                            <div class="wrap-wide <?php echo ($foa_term->term_id % 2 == 1) ? 'wrap-reverse' : ''; ?>">
+                            <div class="wrap-wide <?php echo ($foa_order % 2 == 1) ? 'wrap-reverse' : ''; ?>">
                                 <div class="wrap">
                                     <div class="app-img">
                                         <figure>

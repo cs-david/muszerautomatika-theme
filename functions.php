@@ -174,6 +174,13 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
 }
 
+function search_only_custom_post_type($query) {
+    if ($query->is_search() && !is_admin()) {
+        $query->set('post_type', 'termek'); // Change 'your_post_type' to your desired post type
+    }
+}
+add_action('pre_get_posts', 'search_only_custom_post_type');
+
 function ma_products_post_type() {
     $labels = array(
         'name'               => __('Termékek', 'textdomain'),

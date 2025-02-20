@@ -51,7 +51,10 @@
 					$foa_terms = get_terms(array(
 						'taxonomy'   => 'alkalmazasi_teruletek', // Your custom taxonomy name
 						'hide_empty' => false, // Show even empty categories
-						'parent'     => 0, // Get only top-level terms (no parent)
+						'parent'     => 0,
+						'meta_key' => 'foa_order',
+                        'orderby'  => 'meta_value_num',
+                        'order'    => 'ASC'
 					));
 
 					if (!empty($foa_terms) && !is_wp_error($foa_terms)) {
