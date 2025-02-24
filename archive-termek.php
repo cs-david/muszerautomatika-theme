@@ -50,7 +50,7 @@ get_header(); ?>
                 </div>
             </div>
         </section>
-        <section class="product-list-section">
+        <section class="product-list-section" id="product-list">
             <div class="wrap">
                 <div class="product-cols product-col-1">
 

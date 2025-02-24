@@ -90,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const allFoaInput = document.querySelectorAll('.foa-item');
 
+  const notFound = document.querySelector('.not-found-message');
+
   allFoaInput.forEach(input => {
     input.addEventListener('change', (e) => {
       let activeFoas = [];
@@ -110,14 +112,26 @@ document.addEventListener('DOMContentLoaded', function() {
             hideit.classList.remove('hide-product');
           })
         })
+
       } else {
         allProducts.forEach(product => {
           product.classList.remove('hide-product');
         })
       }
 
+      document.getElementById("product-list").scrollIntoView({ behavior: "smooth" });
+
+      let allVisibleProducts = document.querySelectorAll('.type-termek:not(.hide-product)');
+
+      if(allVisibleProducts.length === 0) {
+        notFound.classList.add('show-not-found'); 
+    } else {
+        notFound.classList.remove('show-not-found');
+      }
+
+      
+
     })
   })
-
 
 });

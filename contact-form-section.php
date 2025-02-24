@@ -6,7 +6,7 @@
     <div class="wrap-wide with-narrow">
         <div class="wrap with-narrow">
             <div class="wrap-narrow">
-                <h2><?php if (is_singular('termek')) { _e('AJÁNLATKÉRÉS', 'muszerautomatika-theme'); } else { the_field("contact_form_heading"); } ?></h2>
+                <h2><?php if (is_singular('termek') || is_archive() || is_search()) { _e('AJÁNLATKÉRÉS', 'muszerautomatika-theme'); } else { the_field("contact_form_heading"); } ?></h2>
                 <?php
                 
                 if (is_singular('termek')) {

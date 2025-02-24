@@ -24,7 +24,7 @@
                 </div>
             </div>
         </section>
-        <section class="product-list-section">
+        <section class="product-list-section" id="product-list">
             <div class="wrap">
                 <div class="product-cols product-col-1">
                     
@@ -55,6 +55,10 @@
                     endwhile; else : ?>
                         <p><?php _e('Nincsenek projektek.'); ?></p>
                     <?php endif; ?>
+                    </div>
+                    <div class="not-found-message">
+                        <i class="fa-solid fa-hand-point-up"></i>
+                        <h4><?php _e('Nincsenek a megadott alkalmazási terület(ek)hez kapcsolódó termékek ebben a kategóriában.'); ?></h4>
                     </div>
                 </div>
             </div>

@@ -128,7 +128,7 @@ get_header();
 
             <section class="team">
                 <div class="wrap">
-                <h3 class="ul-dots"><?php _e('ÜZLETÁG VEZETŐ KOLLÉGÁINK', 'muszerautomatika-theme'); ?></h3>
+                <h3 class="ul-dots"><?php the_field('team_h2') ?></h3>
                 <div class="team-members">
                     <?php
                     // Query for 'munkatarsak' post type

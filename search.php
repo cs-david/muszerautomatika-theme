@@ -13,8 +13,6 @@
         <a class="fixed-offer-btn" href="#contact-form"><?php the_field('floating_cta_label', 15); ?></a>
     <?php endif; ?>
 
-	<?php if ( have_posts() ) : ?>
-
     <main id="primary">
         <section class="product-list-intro">
             <div class="wrap">
@@ -39,8 +37,8 @@
 
                 </div>
                 <div class="product-cols product-col-2">
-                    <div class="product-card-list">
-
+                    <div class="product-card-list" id="product-list">
+					<?php if ( have_posts() ) : ?>
 					<?php
 						/* Start the Loop */
 						while ( have_posts() ) :
