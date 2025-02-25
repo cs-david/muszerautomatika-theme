@@ -34,6 +34,21 @@ jQuery(document).ready(function($) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+  // Scroll to top button 
+
+  const scrollToTopButton = document.querySelector('.jump-to-top');
+
+  let scrollPosition = 0;
+  const viewPortHeight = window.innerHeight;
+
+  window.addEventListener('scroll', () => {
+    scrollPosition = window.scrollY;
+
+    if(scrollPosition > (viewPortHeight * 2)) {
+      scrollToTopButton.style.opacity = (scrollPosition - viewPortHeight * 2) / viewPortHeight;
+    }
+  });
+
   // Product Image Gallery
 
     const mainImage = document.querySelector('.featured-img');

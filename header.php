@@ -21,7 +21,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> id="top" >
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Ugrás a tartalomhoz', 'muszerautomatika-theme' ); ?></a>
@@ -67,6 +67,7 @@
             </nav>
         </div>
     </header>
+	<a class="jump-to-top" href="#top"><i class="fa-solid fa-chevron-up"></i></a>
 	<?php if((get_field('floating_cta') == "true") && !is_archive()) : ?>
         <a class="fixed-offer-btn" href="#contact-form"><?php the_field('floating_cta_label'); ?></a>
     <?php endif; ?>
