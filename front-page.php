@@ -119,7 +119,7 @@ get_header();
                 <h2 class="ul-dots"><?php _e('Alkalmazási területek', 'muszerautomatika-theme'); ?></h2>
                 <div class="application-tiles">
                     <div class="at-rows at-row-1">
-                        <a href="<?php echo site_url('/gazerzekelo-alkalmazasok/#kazanhazi-foldgazerzekeles'); ?>" class="application-tile">
+                        <a href="<?php echo site_url('/gazerzekelo-alkalmazasok/#kazanhazi-foldgazerzekeles-robbanasvedelem-biogaz-metan-propan-butan-gazveszely'); ?>" class="application-tile">
                             <figure>
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/alkalmazas_kazanhaz.png" alt="<?php _e('Kazánház', 'muszerautomatika-theme'); ?>"/>
                             </figure>
@@ -139,7 +139,7 @@ get_header();
                             </figure>
                             <h3><span><?php _e('Technológiai', 'muszerautomatika-theme'); ?></span> <span class="indent-1"><?php _e('gázérzékelés', 'muszerautomatika-theme'); ?></span></h3>
                         </a>
-                        <a href="<?php echo site_url('/gazerzekelo-alkalmazasok/#lakoteri-gazerzekeles'); ?>" class="application-tile">
+                        <a href="<?php echo site_url('/gazerzekelo-alkalmazasok/#lakoteri-gazerzekeles-szen-monoxid-lakoter-lakas-mergezo-gaz-co-riaszto-riasztas-mergezes'); ?>" class="application-tile">
                             <figure>
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/alkalmazas_lakoter.png" alt="<?php _e('Alvó kisgyerek', 'muszerautomatika-theme'); ?>"/>
                             </figure>

@@ -58,7 +58,7 @@
                     </div>
                     <div class="not-found-message">
                         <i class="fa-solid fa-hand-point-up"></i>
-                        <h4><?php _e('Nincsenek a megadott alkalmazási terület(ek)hez kapcsolódó termékek ebben a kategóriában.'); ?></h4>
+                        <h4><?php _e('Nem találhatók a megadott alkalmazási terület(ek)hez kapcsolódó termékek ebben a kategóriában.'); ?></h4>
                     </div>
                 </div>
             </div>
