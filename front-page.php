@@ -153,6 +153,9 @@ get_header();
             <div class="wrap">
                 <h2><?php _e('KIEMELT PARTNEREINK, VEVŐINK', 'muszerautomatika-theme'); ?></h2>
                 <div class="partner-logos">
+                    <svg viewBox="0 0 2142 1321"><use href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg#logo-mol" /></svg>
+                    <svg viewBox="0 0 971 971"><use href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg#logo-mercedes" /></svg>
+
                     <img src="<?php echo get_template_directory_uri(); ?>/img/partners/mol-logo.svg" alt="MOL logo"/>
                     <img src="<?php echo get_template_directory_uri(); ?>/img/partners/mercedes.svg" alt="Mercedes logo"/>
                     <img src="<?php echo get_template_directory_uri(); ?>/img/partners/audi.svg" alt="Audi logo"/>
