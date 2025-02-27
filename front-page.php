@@ -151,16 +151,27 @@ get_header();
         </section>
         <section class="partners">
             <div class="wrap">
-                <h2><?php _e('KIEMELT PARTNEREINK, VEVŐINK', 'muszerautomatika-theme'); ?></h2>
+                <h2><?php _e('KIEMELT PARTNEREINK, VEVŐINK:', 'muszerautomatika-theme'); ?></h2>
                 <div class="partner-logos">
-                    <svg viewBox="0 0 2142 1321"><use href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg#logo-mol" /></svg>
-                    <svg viewBox="0 0 971 971"><use href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg#logo-mercedes" /></svg>
-
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/partners/mol-logo.svg" alt="MOL logo"/>
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/partners/mercedes.svg" alt="Mercedes logo"/>
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/partners/audi.svg" alt="Audi logo"/>
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/partners/Suzuki_logo.svg" alt="Suzuki logo"/>
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/partners/FCSM-logo.svg" alt="FCSM logo"/>
+                    <svg viewBox="0 0 2142 1321"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-mol"></use></svg>
+                    <svg viewBox="0 0 472 157"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-bkv"></use></svg>
+                    <svg viewBox="0 0 3850 750"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-audi"></use></svg>
+                    <svg viewBox="0 0 260 260"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-mercedes"></use></svg>
+                    <svg viewBox="0 0 1900 1555"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-opel"></use></svg>
+                    <svg viewBox="0 0 496 333"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-suzuki"></use></svg>
+                    <svg viewBox="0 0 504 143"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-tesco"></use></svg>
+                    <svg viewBox="0 0 293 351"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-aldi"></use></svg>
+                    <svg viewBox="0 0 287 287"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-lidl"></use></svg>
+                    <svg viewBox="0 0 578 96"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-spar"></use></svg>
+                    <svg viewBox="0 0 563 121"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-bosch"></use></svg>
+                    <svg viewBox="0 0 365 61"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-strabag"></use></svg>
+                    <svg viewBox="0 0 770 147"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-denso"></use></svg>
+                    <svg viewBox="0 0 468 147"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-cocacola"></use></svg>
+                    <svg viewBox="0 0 379 145"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-pepsi"></use></svg>
+                    <svg viewBox="0 0 400 93"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-heineken"></use></svg>
+                    <svg viewBox="0 0 787 109"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-rgedeon"></use></svg>
+                    <svg viewBox="0 0 266 167"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-egis"></use></svg>
+                    <svg viewBox="0 0 551 193"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-teva"></use></svg>
                 </div>
             </div>
         </section>
