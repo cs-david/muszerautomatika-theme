@@ -61,7 +61,7 @@ get_header();
                                 <dt><?php _e('e-mail:', 'muszerautomatika-theme'); ?></dt>
                                 <dd><a href="mailto:<?php echo get_theme_mod('service_email'); ?>"><?php echo get_theme_mod('service_email'); ?></a></dd>
                             </dl>
-                            <a class="pdf-download" href="h<?php the_field('order_sheet'); ?>"><i class="fas fa-file-download"></i>üzembe helyezési<br> megrendelőlap letöltés</a>
+                            <a class="pdf-download" href="<?php the_field('order_sheet'); ?>"><i class="fas fa-file-download"></i><?php _e('Üzembe helyezési<br> igénybejelentő letöltés', 'muszerautomatika-theme'); ?></a>
                         </div>
                     </div>
                 </div>
