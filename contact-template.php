@@ -60,7 +60,7 @@ get_header();
                         <h3 class="ul-dots"><?php _e('GÁZÉRZÉKELŐ GYÁRTÁS<br> ÉS ÉRTÉKESÍTÉS', 'muszerautomatika-theme'); ?></h3>
                         <dl class="contact-list">
                             <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
-                            <dd><?php echo get_theme_mod('sales_address'); ?></dd>
+                            <dd><?php echo apply_filters('wpml_translate_single_string', get_theme_mod('sales_address'), 'Theme Mod', 'Sales Address'); ?></dd>
                             <dt><?php _e('Szállítási cím:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php echo get_theme_mod('shipping_address'); ?></dd>
                             <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
