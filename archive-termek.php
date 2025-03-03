@@ -20,7 +20,14 @@ get_header(); ?>
                         <?php
                         $args = array(
                             'post_type' => 'slides',
-                            'posts_per_page' => -1
+                            'posts_per_page' => -1,
+                            "tax_query" => array(
+                                array(
+                                    "taxonomy" => "megjelenesi-helyek",
+                                    "field" => "slug",
+                                    "terms" => "product-archive"
+                                )
+                            )
                         );
                         $slides = new WP_Query($args);
                         if ($slides->have_posts()) :

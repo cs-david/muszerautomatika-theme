@@ -21,11 +21,37 @@ get_header();
 
             <section class="hero featured-img-section">
                 <div class="wrap-wide">
-                    <figure>
-                        <?php the_post_thumbnail('full', array('class' => 'full-img')); ?>
-                    </figure>
+                    <div class="owl-carousel owl-theme">
+                            <?php
+                            $args = array(
+                                'post_type' => 'slides',
+                                'posts_per_page' => -1,
+                                "tax_query" => array(
+                                    array(
+                                        "taxonomy" => "megjelenesi-helyek",
+                                        "field" => "slug",
+                                        "terms" => "foa"
+                                    )
+                                )
+                            );
+                            $slides = new WP_Query($args);
+                            if ($slides->have_posts()) :
+                                while ($slides->have_posts()) : $slides->the_post(); ?>
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="full-img">
+                                    <?php endif; ?>
+                                <?php endwhile;
+                                wp_reset_postdata();
+                            endif;
+                            ?>
+    
+                    </div>
+                    <div class="nav-dots">
+                        <div class="my-dots"></div>
+                        <div class="my-nav"></div>
+                    </div>                
                 </div>
-            </section>
+            </section> 
             <section class="content-section">
                 <div class="wrap">
                     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>

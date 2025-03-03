@@ -331,6 +331,27 @@ function ma_slides_post_type() {
 
 add_action('init', 'ma_slides_post_type');
 
+function ma_slides_tag() {
+    $labels = array(
+        'name'              => 'Megjelenési helyek',
+        'singular_name'     => 'Megjelenési hely',
+    );
+
+    $args = array(
+        'hierarchical'      => false, // Ha hamis, akkor címkéként viselkedik
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'megjelenesi-helyek'),
+        'show_in_rest'       => true,
+    );
+
+    register_taxonomy('megjelenesi-helyek', array('slides'), $args);
+}
+
+add_action('init', 'ma_slides_tag');
+
 function ma_customizer_settings($wp_customize) {
 
     $wp_customize->add_section('company_contact_section', array(
