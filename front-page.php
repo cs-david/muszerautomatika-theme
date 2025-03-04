@@ -34,13 +34,13 @@ get_header();
                 <?php the_content(); ?>
                 <div class="what-we-do">
                     <div class="services">
-                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#dev'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-development.svg"><h3><?php _e('Fejlesztés', 'muszerautomatika-theme'); ?></h3></a>
+                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#dev'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-development.svg" alt="<?php _e('ceruza és vonalzó ikon', 'muszerautomatika-theme'); ?>"><h3><?php _e('Fejlesztés', 'muszerautomatika-theme'); ?></h3></a>
                     </div>
                     <div class="services">
-                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#manu'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-manufacturing.svg"><h3><?php _e('Gyártás', 'muszerautomatika-theme'); ?></h3></a>
+                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#manu'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-manufacturing.svg" alt="<?php _e('fogaskerék ikon', 'muszerautomatika-theme'); ?>"><h3><?php _e('Gyártás', 'muszerautomatika-theme'); ?></h3></a>
                     </div>
                     <div class="services">
-                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#service'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-service.svg"><h3><?php _e('Szakszerviz<br> szolgáltatás', 'muszerautomatika-theme'); ?></h3></a>
+                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#service'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-service.svg" alt="<?php _e('csavarkulcs ikon', 'muszerautomatika-theme'); ?>"><h3><?php _e('Szakszerviz<br> szolgáltatás', 'muszerautomatika-theme'); ?></h3></a>
                     </div>
                 </div>
             </div>
@@ -76,20 +76,18 @@ get_header();
 						echo '<p>' . esc_html_e('Nincsenek elérhető kategóriák.', 'muszerautomatika-theme') . '</p>';
 					}
 					?>
-
-            </div>
-        </section> 
-        <section class="certs">
-            <div class="wrap-narrow">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/certs/system-certification.svg" alt="System certification logo"/>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/certs/atex-logo.svg" alt="Atex logo"/>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/certs/CE-logo.svg" alt="CE logo"/>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/certs/katasztrofavedelem.png" alt="Katasztrófavédelem logo"/>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/certs/BKI-logo.png" alt="BKI logo"/>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/certs/EMEI-logo.png" alt="EMEI logo"/>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/certs/MKEH-logo.png" alt="MKEH logo"/>
+                <div class="certs">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/certs/system-certification.svg" alt="System certification logo"/>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/certs/atex-logo.svg" alt="Atex logo"/>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/certs/CE-logo.svg" alt="CE logo"/>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/certs/katasztrofavedelem.png" alt="Katasztrófavédelem logo"/>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/certs/BKI-logo.png" alt="BKI logo"/>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/certs/EMEI-logo.png" alt="EMEI logo"/>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/certs/MKEH-logo.png" alt="MKEH logo"/>
+                </div>
             </div>
         </section>
+        </section> 
         <section class="numbers">
             <div class="wrap-wide wrap-reverse">
                 <div class="wrap">

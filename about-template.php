@@ -45,7 +45,7 @@ get_header();
                             } ?>
                         </div>
                         <div class="services">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-development.svg"><h3><?php _e('Fejlesztés', 'muszerautomatika-theme'); ?></h3>
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-development.svg" alt="<?php _e('ceruza és vonalzó ikon', 'muszerautomatika-theme'); ?>"><h3><?php _e('Fejlesztés', 'muszerautomatika-theme'); ?></h3>
                         </div>
                         <?php the_field("dev_desc"); ?>
                     </div>
@@ -57,7 +57,7 @@ get_header();
                             } ?>
                         </div>
                         <div class="services">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-manufacturing.svg"><h3><?php _e('Gyártás', 'muszerautomatika-theme'); ?></h3>
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-manufacturing.svg" alt="<?php _e('fogaskerék ikon', 'muszerautomatika-theme'); ?>"><h3><?php _e('Gyártás', 'muszerautomatika-theme'); ?></h3>
                         </div>
                         <?php the_field("manu_desc"); ?>
                     </div>
@@ -69,7 +69,7 @@ get_header();
                             } ?>
                         </div>
                         <div class="services">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-service.svg"><h3><?php _e('Szakszerviz szolgáltatás', 'muszerautomatika-theme'); ?></h3>
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-service.svg" alt="<?php _e('csavarkulcs ikon', 'muszerautomatika-theme'); ?>"><h3><?php _e('Szakszerviz szolgáltatás', 'muszerautomatika-theme'); ?></h3>
                         </div>
                         <?php the_field("service_desc"); ?>
                     </div>

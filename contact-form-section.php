@@ -30,7 +30,7 @@ if (is_archive('termek') || is_singular('termek')) {
                     }
                 
                 ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo-white.svg" alt="Műszer automatika szimbolum"/ class="form-ma-logo">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo-white.svg" alt="Műszer automatika szimbolum" class="form-ma-logo">
             </div>
         </div>
     </div>

@@ -16,7 +16,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<title><?php wp_title(''); ?></title>
 
 	<?php wp_head(); ?>
 </head>
@@ -60,7 +59,7 @@
 						?>          
                     </div>
                 </div>
-				<button class="mobile-menu-trigger" id="menu-trigger" aria-controls="primary-menu" aria-expanded="false">
+				<button class="mobile-menu-trigger" id="menu-trigger" aria-controls="top-nav" aria-expanded="false">
 					<span class="screen-reader-text"><?php esc_html_e( 'Mobil menü megnyitása', 'muszerautomatika-theme' ); ?></span>
 					<i class="fa fa-bars"></i>
 				</button>

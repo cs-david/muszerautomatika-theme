@@ -103,6 +103,8 @@ get_header();
 					}
 					?>
 
+            </section>
+
             <?php if (get_field("contact_form_type") != "disabled") {
                     include_once(get_template_directory() . '/contact-form-section.php');
                 } ?>
