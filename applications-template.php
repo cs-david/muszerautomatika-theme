@@ -26,6 +26,8 @@ get_header();
                             $args = array(
                                 'post_type' => 'slides',
                                 'posts_per_page' => -1,
+                                'orderby' => 'menu_order',
+                                'order' => 'ASC',
                                 "tax_query" => array(
                                     array(
                                         "taxonomy" => "megjelenesi-helyek",

@@ -321,7 +321,7 @@ function ma_slides_post_type() {
         'has_archive'        => false,
         'hierarchical'       => false,
         'menu_position'      => 6, 
-        'supports'           => array('title', 'thumbnail'), 
+        'supports'           => array('title', 'thumbnail', 'page-attributes'), 
         'menu_icon'          => 'dashicons-align-wide',
         'show_in_rest'       => true, // Gutenberg támogatás
     );
