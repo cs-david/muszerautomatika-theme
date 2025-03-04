@@ -98,7 +98,7 @@ function wpacg_mszer_automatika_admin_color_scheme() {
     $theme_dir = get_stylesheet_directory_uri();
   
     //Műszer Automatika
-    wp_admin_css_color( 'mszer_automatika',  'Műszer Automatika' ),
+    wp_admin_css_color( 'mszer_automatika',  'Műszer Automatika',
       $theme_dir . '/mszer_automatika.css',
       array( '#212e5b', '#e5f8ff', '#c41d48' , '#070b1a')
     );
@@ -219,8 +219,8 @@ add_action('init', 'ma_products_post_type');
 
 function ma_product_categories() {
     $labels = array(
-        'name'              => _x('Termékkategóriák', 'taxonomy general name',
-        'singular_name'     => _x('Termékkategória', 'taxonomy singular name',
+        'name'              => 'Termékkategóriák',
+        'singular_name'     => 'Termékkategória',
     );
 
     $args = array(
@@ -240,8 +240,8 @@ add_action('init', 'ma_product_categories');
 
 function ma_product_foa() {
     $labels = array(
-        'name'              => _x('Alkalmazási területek', 'taxonomy general name',
-        'singular_name'     => _x('Alkalmazási terület', 'taxonomy singular name',
+        'name'              => 'Alkalmazási területek',
+        'singular_name'     => 'Alkalmazási terület',
     );
 
     $args = array(
