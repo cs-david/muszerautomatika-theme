@@ -39,6 +39,6 @@
         <div class="card-excerpt">
             <?php the_content(); ?>
         </div>
-        <a href="<?php the_permalink(); ?>" class="btn"><?php _e('tovább a termékhez', 'text-domain'); ?></a>
+        <a href="<?php the_permalink(); ?>" class="btn"><?php _e('tovább a termékhez', 'muszerautomatika-theme'); ?></a>
     </div>
 </article>

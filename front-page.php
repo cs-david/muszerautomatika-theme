@@ -34,13 +34,13 @@ get_header();
                 <?php the_content(); ?>
                 <div class="what-we-do">
                     <div class="services">
-                        <a href="<?php echo site_url('/bemutatkozas/#dev'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-development.svg"><h3><?php _e('Fejlesztés', 'muszerautomatika-theme'); ?></h3></a>
+                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#dev'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-development.svg"><h3><?php _e('Fejlesztés', 'muszerautomatika-theme'); ?></h3></a>
                     </div>
                     <div class="services">
-                        <a href="<?php echo site_url('/bemutatkozas/#manu'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-manufacturing.svg"><h3><?php _e('Gyártás', 'muszerautomatika-theme'); ?></h3></a>
+                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#manu'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-manufacturing.svg"><h3><?php _e('Gyártás', 'muszerautomatika-theme'); ?></h3></a>
                     </div>
                     <div class="services">
-                        <a href="<?php echo site_url('/bemutatkozas/#service'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-service.svg"><h3><?php _e('Szakszerviz<br> szolgáltatás', 'muszerautomatika-theme'); ?></h3></a>
+                        <a href="<?php echo esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('bemutatkozas')->ID, 'page', true)) . '#service'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-service.svg"><h3><?php _e('Szakszerviz<br> szolgáltatás', 'muszerautomatika-theme'); ?></h3></a>
                     </div>
                 </div>
             </div>

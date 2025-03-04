@@ -98,7 +98,7 @@ function wpacg_mszer_automatika_admin_color_scheme() {
     $theme_dir = get_stylesheet_directory_uri();
   
     //Műszer Automatika
-    wp_admin_css_color( 'mszer_automatika', __( 'Műszer Automatika' ),
+    wp_admin_css_color( 'mszer_automatika',  'Műszer Automatika' ),
       $theme_dir . '/mszer_automatika.css',
       array( '#212e5b', '#e5f8ff', '#c41d48' , '#070b1a')
     );
@@ -183,16 +183,16 @@ add_action('pre_get_posts', 'search_only_custom_post_type');
 
 function ma_products_post_type() {
     $labels = array(
-        'name'               => __('Termékek', 'textdomain'),
-        'singular_name'      => __('Termék', 'textdomain'),
-        'menu_name'          => __('Termékek', 'textdomain'),
-        'name_admin_bar'     => __('Termék', 'textdomain'),
-        'add_new_item'       => __('Új termék hozzáadása', 'textdomain'),
-        'new_item'           => __('Új termék', 'textdomain'),
-        'edit_item'          => __('Termék szerkesztése', 'textdomain'),
-        'view_item'          => __('Termék megtekintése', 'textdomain'),
-        'all_items'          => __('Összes termék', 'textdomain'),
-        'search_items'       => __('Termékek keresése', 'textdomain'),
+        'name'               => 'Termékek',
+        'singular_name'      => 'Termék',
+        'menu_name'          => 'Termékek',
+        'name_admin_bar'     => 'Termék',
+        'add_new_item'       => 'Új termék hozzáadása',
+        'new_item'           => 'Új termék',
+        'edit_item'          => 'Termék szerkesztése',
+        'view_item'          => 'Termék megtekintése',
+        'all_items'          => 'Összes termék',
+        'search_items'       => 'Termékek keresése',
     );
 
     $args = array(
@@ -219,8 +219,8 @@ add_action('init', 'ma_products_post_type');
 
 function ma_product_categories() {
     $labels = array(
-        'name'              => _x('Termékkategóriák', 'taxonomy general name', 'textdomain'),
-        'singular_name'     => _x('Termékkategória', 'taxonomy singular name', 'textdomain'),
+        'name'              => _x('Termékkategóriák', 'taxonomy general name',
+        'singular_name'     => _x('Termékkategória', 'taxonomy singular name',
     );
 
     $args = array(
@@ -240,8 +240,8 @@ add_action('init', 'ma_product_categories');
 
 function ma_product_foa() {
     $labels = array(
-        'name'              => _x('Alkalmazási területek', 'taxonomy general name', 'textdomain'),
-        'singular_name'     => _x('Alkalmazási terület', 'taxonomy singular name', 'textdomain'),
+        'name'              => _x('Alkalmazási területek', 'taxonomy general name',
+        'singular_name'     => _x('Alkalmazási terület', 'taxonomy singular name',
     );
 
     $args = array(
@@ -261,16 +261,16 @@ add_action('init', 'ma_product_foa');
 
 function ma_team_post_type() {
     $labels = array(
-        'name'               => __('Munkatársak', 'textdomain'),
-        'singular_name'      => __('Munkatárs', 'textdomain'),
-        'menu_name'          => __('Munkatársak', 'textdomain'),
-        'name_admin_bar'     => __('Munkatárs', 'textdomain'),
-        'add_new_item'       => __('Új munkatárs hozzáadása', 'textdomain'),
-        'new_item'           => __('Új munkatárs', 'textdomain'),
-        'edit_item'          => __('Munkatárs szerkesztése', 'textdomain'),
-        'view_item'          => __('Munkatárs megtekintése', 'textdomain'),
-        'all_items'          => __('Összes munkatárs', 'textdomain'),
-        'search_items'       => __('Munkatársak keresése', 'textdomain'),
+        'name'               => 'Munkatársak',
+        'singular_name'      => 'Munkatárs',
+        'menu_name'          => 'Munkatársak',
+        'name_admin_bar'     => 'Munkatárs',
+        'add_new_item'       => 'Új munkatárs hozzáadása',
+        'new_item'           => 'Új munkatárs',
+        'edit_item'          => 'Munkatárs szerkesztése',
+        'view_item'          => 'Munkatárs megtekintése',
+        'all_items'          => 'Összes munkatárs',
+        'search_items'       => 'Munkatársak keresése',
     );
 
     $args = array(
@@ -297,16 +297,16 @@ add_action('init', 'ma_team_post_type');
 
 function ma_slides_post_type() {
     $labels = array(
-        'name'               => __('Slide-ok', 'textdomain'),
-        'singular_name'      => __('Slide', 'textdomain'),
-        'menu_name'          => __('Slide-ok', 'textdomain'),
-        'name_admin_bar'     => __('Slide', 'textdomain'),
-        'add_new_item'       => __('Új slide hozzáadása', 'textdomain'),
-        'new_item'           => __('Új slide', 'textdomain'),
-        'edit_item'          => __('Slide szerkesztése', 'textdomain'),
-        'view_item'          => __('Slide megtekintése', 'textdomain'),
-        'all_items'          => __('Összes slide', 'textdomain'),
-        'search_items'       => __('Slide-ok keresése', 'textdomain'),
+        'name'               => 'Slide-ok',
+        'singular_name'      => 'Slide',
+        'menu_name'          => 'Slide-ok',
+        'name_admin_bar'     => 'Slide',
+        'add_new_item'       => 'Új slide hozzáadása',
+        'new_item'           => 'Új slide',
+        'edit_item'          => 'Slide szerkesztése',
+        'view_item'          => 'Slide megtekintése',
+        'all_items'          => 'Összes slide',
+        'search_items'       => 'Slide-ok keresése',
     );
 
     $args = array(
@@ -355,15 +355,15 @@ add_action('init', 'ma_slides_tag');
 function ma_customizer_settings($wp_customize) {
 
     $wp_customize->add_section('company_contact_section', array(
-        'title'       => __('MA Kft. Elérhetőségek', 'textdomain'),
+        'title'       => 'MA Kft. Elérhetőségek',
         'priority'    => 31,
     ));
     $wp_customize->add_section('sales_contact_section', array(
-        'title'       => __('Gyártás és Értékesítés Elérhetőségek', 'textdomain'),
+        'title'       => 'Gyártás és Értékesítés Elérhetőségek',
         'priority'    => 32,
     ));
     $wp_customize->add_section('service_contact_section', array(
-        'title'       => __('Szakszervíz Elérhetőségek', 'textdomain'),
+        'title'       => 'Szakszervíz Elérhetőségek',
         'priority'    => 33,
     ));
 
@@ -594,13 +594,13 @@ function ma_customizer_settings($wp_customize) {
 
     // Info Phone
     $wp_customize->add_setting('service_phone', array(
-        'default'           => __('Azonnali info telefonszám', 'textdomain'),
+        'default'           => 'Azonnali info telefonszám',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('service_phone', array(
-        'label'       => __('Azonnali info telefonszám', 'textdomain'),
+        'label'       => 'Azonnali info telefonszám',
         'section'     => 'service_contact_section',
         'type'        => 'text',
     ));
