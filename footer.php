@@ -12,15 +12,16 @@
 ?>
 
 	<footer class="site-footer">
+		<h2 class="screen-reader-text"><?php _e('Lábléc', 'muszerautomatika-theme'); ?></h2>
         <div class="footer-top">
             <div class="wrap">
                 <div class="footer-col-1">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo-white.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/>
-                    <h4>Műszer<br> Automatika Kft.</h4>
-                    <h5><?php echo get_bloginfo( 'description', 'display' ); ?></h5>
+                    <h3>Műszer<br> Automatika Kft.</h3>
+                    <h4><?php echo get_bloginfo( 'description', 'display' ); ?></h4>
                 </div>
                 <div class="footer-col-2 fancy-anchor">
-					<h4 class="fat-footer-titles ul-dots"><?php _e('Termékek', 'muszerautomatika-theme'); ?></h4>
+					<h3 class="fat-footer-titles ul-dots"><?php _e('Termékek', 'muszerautomatika-theme'); ?></h4>
                     <div class="fat-footer-menu">
 					<?php
 					$product_terms = get_terms(array(
@@ -45,7 +46,7 @@
                     </div>
                 </div>
                 <div class="footer-col-3 fancy-anchor">
-					<h4 class="fat-footer-titles ul-dots"><?php _e('Alkalmazások', 'muszerautomatika-theme'); ?></h4>
+					<h3 class="fat-footer-titles ul-dots"><?php _e('Alkalmazások', 'muszerautomatika-theme'); ?></h4>
                     <div class="fat-footer-menu">
 					<?php
 					$foa_terms = get_terms(array(
@@ -70,7 +71,7 @@
                     </div>
                 </div>
                 <div class="footer-col-4 fancy-anchor">
-					<h4 class="fat-footer-titles ul-dots"><?php _e('Kapcsolat', 'muszerautomatika-theme'); ?></h4>
+					<h3 class="fat-footer-titles ul-dots"><?php _e('Kapcsolat', 'muszerautomatika-theme'); ?></h4>
                     <dl>
                         <dt>info</dt>
                         <dd><a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_theme_mod('info_phone', '+36-20/359-9316')); ?>"><?php echo get_theme_mod('info_phone', '+36-20/359-9316'); ?></a></dd>
