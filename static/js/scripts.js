@@ -47,8 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if(scrollPosition > (viewPortHeight * 2)) {
       scrollToTopButton.style.opacity = (scrollPosition - viewPortHeight * 2) / viewPortHeight;
       scrollToTopButton.setAttribute("aria-hidden", "false");
-    } else {
+      scrollToTopButton.disabled = false;
+    } else { 
       scrollToTopButton.setAttribute("aria-hidden", "true");
+      scrollToTopButton.disabled = true;
+      scrollToTopButton.style.opacity = 0;
     }
   });
 

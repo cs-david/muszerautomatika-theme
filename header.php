@@ -66,7 +66,7 @@
             </nav>
         </div>
     </header>
-	<button class="jump-to-top" href="#top" aria-hidden="true" aria-label="<?php _e( 'Ugrás az oldal tetejére', 'muszerautomatika-theme' ); ?>"><i class="fa-solid fa-chevron-up"></i></button>
+	<button class="jump-to-top" href="#top" aria-hidden="true" disabled aria-label="<?php _e( 'Ugrás az oldal tetejére', 'muszerautomatika-theme' ); ?>"><i class="fa-solid fa-chevron-up"></i></button>
 	<?php if((get_field('floating_cta') == "true") && !is_archive()) : ?>
         <a class="fixed-offer-btn" href="#contact-form"><?php the_field('floating_cta_label'); ?></a>
     <?php endif; ?>
