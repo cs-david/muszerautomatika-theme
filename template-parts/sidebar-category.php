@@ -1,8 +1,9 @@
 <div class="category-filters">
+    <h2 class="screen-reader-text"><?php _e('Kategória szűrők', 'muszerautomatika-theme'); ?></h2>
     <div class="searchbox">
     <?php get_search_form(); ?>
     </div>
-    <h4 class="ul-dots"><?php _e('Termékkategóriák', 'muszerautomatika-theme'); ?></h4>
+    <h3 class="ul-dots"><?php _e('Termékkategóriák', 'muszerautomatika-theme'); ?></h3>
     <?php
     $taxonomy = 'termek_kategoria';
     $terms = get_terms(array(
@@ -34,7 +35,7 @@
                 $has_subcat_class = !empty($child_terms) && !is_wp_error($child_terms) ? 'has_subcat' : '';
                 echo '<li class="' . $active_class . ' ' . $has_subcat_class . '"><a href="' . get_term_link($term) . '">' . $term->name . '</a>';
                 if (!empty($child_terms) && !is_wp_error($child_terms)) {
-                    echo '<button class="expand-collapse-btn"><i class="fa-solid fa-circle-arrow-down"></i></button>';
+                    echo '<button aria-label="Alkategória megjelenítés és elrejtés" class="expand-collapse-btn"><i class="fa-solid fa-circle-arrow-down"></i></button>';
                 }
                 if (!empty($child_terms) && !is_wp_error($child_terms)) {
                     echo '<ul class="sub-categories">';
@@ -50,7 +51,7 @@
         echo '</ul>';
     }
     ?>
-    <h4 class="ul-dots"><?php _e('Szűrés alkalmazási terület szerint', 'muszerautomatika-theme'); ?></h4>
+    <h3 class="ul-dots"><?php _e('Szűrés alkalmazási terület szerint', 'muszerautomatika-theme'); ?></h3>
     <?php
     $alkalmazasi_teruletek = get_terms(array(
         'taxonomy' => 'alkalmazasi_teruletek',

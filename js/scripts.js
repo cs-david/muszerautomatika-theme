@@ -29,6 +29,11 @@ jQuery(document).ready(function($) {
     itemElement: "figure",
     navContainer: ".my-nav",
     dotsContainer: ".my-dots",
+    navText: [
+			'<span aria-label="' + 'Lépj az előző képre' + '">&#x2039;</span>',
+			'<span aria-label="' + 'Lépj az következő képre' + '">&#x203a;</span>'
+		],
+    navElement: 'button type="button" aria-label="Képgaléria navigáció"',
   });
 });
 

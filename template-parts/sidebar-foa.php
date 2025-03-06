@@ -1,5 +1,7 @@
 <div class="category-filters">
-    <h4 class="ul-dots"><?php _e('Alkalmazási területek', 'muszerautomatika-theme'); ?></h4>
+    <h2 class="screen-reader-text"><?php _e('Alkalmazási terület választó', 'muszerautomatika-theme'); ?></h2>
+
+    <h3 class="ul-dots"><?php _e('Alkalmazási területek', 'muszerautomatika-theme'); ?></h3>
     <?php
     $taxonomy = 'alkalmazasi_teruletek';
     $terms = get_terms(array(
