@@ -83,6 +83,10 @@ get_header(); ?>
                         <p><?php _e('Nincsenek termékek.'); ?></p>
                     <?php endif; ?>
                     </div>
+                    <div class="not-found-message" aria-hidden="true">
+                        <i class="fa-solid fa-hand-point-up"></i>
+                        <p><?php _e('Nem találhatók a megadott alkalmazási terület(ek)hez kapcsolódó termékek ebben a kategóriában.'); ?></p>
+                    </div>
                 </div>
             </div>
         </section>

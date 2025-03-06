@@ -53,12 +53,12 @@
                        get_template_part( 'template-parts/content', 'termek-loop' );
                     
                     endwhile; else : ?>
-                        <p><?php _e('Nincsenek projektek.'); ?></p>
+                        <p><?php _e('Nincsenek termékek.'); ?></p>
                     <?php endif; ?>
                     </div>
-                    <div class="not-found-message">
+                    <div class="not-found-message" aria-hidden="true">
                         <i class="fa-solid fa-hand-point-up"></i>
-                        <h4><?php _e('Nem találhatók a megadott alkalmazási terület(ek)hez kapcsolódó termékek ebben a kategóriában.'); ?></h4>
+                        <p><?php _e('Nem találhatók a megadott alkalmazási terület(ek)hez kapcsolódó termékek ebben a kategóriában.'); ?></p>
                     </div>
                 </div>
             </div>

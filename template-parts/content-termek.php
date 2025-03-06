@@ -13,7 +13,8 @@
     <div class="wrap">
         <div class="product-cols product-col-1">
             <div class="category-filters">
-                <h4 class="ul-dots"><?php _e('Termékkategóriák', 'muszerautomatika-theme'); ?></h4>
+            <h2 class="screen-reader-text"><?php _e('Kategória szűrők', 'muszerautomatika-theme'); ?></h2>
+            <h3 class="ul-dots"><?php _e('Termékkategóriák', 'muszerautomatika-theme'); ?></h3>
             <?php
             $taxonomy = 'termek_kategoria';
             $terms = get_terms(array(
@@ -41,7 +42,7 @@
                         $has_subcat_class = !empty($child_terms) && !is_wp_error($child_terms) ? 'has_subcat' : '';
                         echo '<li class="' . $active_class . ' ' . $has_subcat_class . '"><a href="' . get_term_link($term) . '">' . $term->name . '</a>';
                         if (!empty($child_terms) && !is_wp_error($child_terms)) {
-                            echo '<button class="expand-collapse-btn"><i class="fa-solid fa-circle-arrow-down"></i></button>';
+                            echo '<button aria-label="Alkategória megjelenítés és elrejtés" class="expand-collapse-btn"><i class="fa-solid fa-circle-arrow-down"></i></button>';
                         }
                         if (!empty($child_terms) && !is_wp_error($child_terms)) {
                             echo '<ul class="sub-categories">';
@@ -100,7 +101,7 @@
                     </div>
                     <div class="product-card-content">
                         <?php the_content(); ?>
-                        <h5><?php _e('Alkalmazási terület:', 'muszerautomatika-theme'); ?></h5>
+                        <h2 class="foa-title"><?php _e('Alkalmazási terület:', 'muszerautomatika-theme'); ?></h2>
                         <p>
                         <?php
                         $alkalmazasi_teruletek = get_the_terms(get_the_ID(), 'alkalmazasi_teruletek');
@@ -114,10 +115,10 @@
                     </div>
                 </div>
                 <div class="accordion-section">
-                    <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Letölthető dokumentumok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                    <h2 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Letölthető dokumentumok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h2>
                     <div class="accordion-section-content">
                     <?php if(get_field('product_tech_sheets')) : ?>
-                    <h4><?php _e('Műszaki adatlapok', 'muszerautomatika-theme'); ?></h4>
+                    <h3 class="dl-subheading"><?php _e('Műszaki adatlapok', 'muszerautomatika-theme'); ?></h3>
                     <ul class="fancy-anchor">
                         <?php 
                         $tech_sheets = get_field('product_tech_sheets');
@@ -132,7 +133,7 @@
                         </ul>
                         <?php endif; ?>
                         <?php if(get_field('product_manuals')) : ?>
-                        <h4><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?></h4>
+                        <h3 class="dl-subheading"><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?></h3>
                         <ul class="fancy-anchor">
                             <?php 
                             $product_manuals = get_field('product_manuals');
@@ -147,7 +148,7 @@
                         </ul>
                         <?php endif; ?>
                         <?php if(get_field('product_licences')) : ?>
-                        <h4><?php _e('Engedélyek', 'muszerautomatika-theme'); ?></h4>
+                        <h3 class="dl-subheading"><?php _e('Engedélyek', 'muszerautomatika-theme'); ?></h3>
                         <ul class="fancy-anchor">
                             <?php 
                             $product_licences = get_field('product_licences');
@@ -162,7 +163,7 @@
                         </ul>
                         <?php endif; ?>
                         <?php if(get_field('product_installation_doc')) : ?>
-                        <h4><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?></h4>
+                        <h3 class="dl-subheading"><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?></h3>
                         <ul class="fancy-anchor">
                             <?php 
                             $product_installation_doc = get_field('product_installation_doc');
@@ -183,7 +184,7 @@
                     $related_products = get_field('related_products');
                     if( $related_products ): ?>
                     <div class="related-products">
-                        <h3 class="ul-dots"><i class="fa-solid fa-link"></i><?php _e('Kapcsolódó termékek', 'muszerautomatika-theme'); ?></h3>
+                        <h2 class="ul-dots"><i class="fa-solid fa-link"></i><?php _e('Kapcsolódó termékek', 'muszerautomatika-theme'); ?></h2>
                         <div class="related-cards">
                         <?php foreach( $related_products as $post ): 
 
@@ -201,7 +202,7 @@
                                             <img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo-white.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/>
                                         </div>
                                     <?php endif; ?>
-                                    <h4><?php the_title(); ?></h4>
+                                    <h3><?php the_title(); ?></h3>
                                 </a>
                             </article>
                         <?php endforeach; ?>

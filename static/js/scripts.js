@@ -130,18 +130,21 @@ document.addEventListener('DOMContentLoaded', function() {
       if(activeFoas.length != 0) {
         allProducts.forEach(product => {
           product.classList.add('hide-product');
+          product.setAttribute('aria-hidden', 'true'); 
         })
   
         activeFoas.forEach(product => {
           const hideThese = document.querySelectorAll('.alkalmazasi_teruletek-' + product);
           hideThese.forEach(hideit => {
             hideit.classList.remove('hide-product');
+            hideit.setAttribute('aria-hidden', 'false'); 
           })
         })
 
       } else {
         allProducts.forEach(product => {
           product.classList.remove('hide-product');
+          product.setAttribute('aria-hidden', 'false'); 
         })
       }
 
@@ -150,9 +153,11 @@ document.addEventListener('DOMContentLoaded', function() {
       let allVisibleProducts = document.querySelectorAll('.type-termek:not(.hide-product)');
 
       if(allVisibleProducts.length === 0) {
-        notFound.classList.add('show-not-found'); 
+        notFound.classList.add('show-not-found');
+        notFound.setAttribute('aria-hidden', 'false'); 
     } else {
         notFound.classList.remove('show-not-found');
+        notFound.setAttribute('aria-hidden', 'true'); 
       }
 
       

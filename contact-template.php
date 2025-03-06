@@ -35,7 +35,7 @@ get_header();
                 <div class="wrap">
                     <div class="contact-info-container">
                         <div>
-                        <h3 class="ul-dots"><?php _e('MŰSZER AUTOMATIKA KFT.', 'muszerautomatika-theme'); ?></h3>
+                        <h2 class="ul-dots"><?php _e('MŰSZER AUTOMATIKA KFT.', 'muszerautomatika-theme'); ?></h2>
                             <dl class="contact-list">
                             <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php echo get_theme_mod('company_address'); ?></dd>
@@ -57,7 +57,7 @@ get_header();
                             </dl>
                         </div>
                         <div>
-                        <h3 class="ul-dots"><?php _e('GÁZÉRZÉKELŐ GYÁRTÁS<br> ÉS ÉRTÉKESÍTÉS', 'muszerautomatika-theme'); ?></h3>
+                        <h2 class="ul-dots"><?php _e('GÁZÉRZÉKELŐ GYÁRTÁS<br> ÉS ÉRTÉKESÍTÉS', 'muszerautomatika-theme'); ?></h2>
                         <dl class="contact-list">
                             <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php echo get_theme_mod('sales_address'); ?></dd>
@@ -83,7 +83,7 @@ get_header();
                         </dl>
                         </div>
                         <div>
-                        <h3 class="ul-dots"><?php _e('GÁZÉRZÉKELŐ<br> SZAKSZERVIZ', 'muszerautomatika-theme'); ?></h3>
+                        <h2 class="ul-dots"><?php _e('GÁZÉRZÉKELŐ<br> SZAKSZERVIZ', 'muszerautomatika-theme'); ?></h2>
                             <dl class="contact-list">
                             <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php echo get_theme_mod('service_address'); ?></dd>
@@ -128,7 +128,7 @@ get_header();
 
             <section class="team">
                 <div class="wrap">
-                <h3 class="ul-dots"><?php the_field('team_h2') ?></h3>
+                <h2 class="ul-dots"><?php the_field('team_h2') ?></h2>
                 <div class="team-members">
                     <?php
                     // Query for 'munkatarsak' post type
