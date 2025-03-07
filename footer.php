@@ -62,7 +62,7 @@
 						echo '<ul class="footer-foa-list">';
 						foreach ($foa_terms as $foa_term) {
 							$foa_order = get_term_meta($foa_term->term_id, 'foa_order', true);
-							echo '<li><a href="' . esc_url(home_url('/gazerzekelo-alkalmazasok#foa-' . $foa_order)) . '">' . esc_html($foa_term->name) . '</a></li>';
+							echo '<li><a href="' . esc_url(get_permalink(apply_filters('wpml_object_id', get_page_by_path('gazerzekelo-alkalmazasok')->ID, 'page', true)) . '#foa-' . $foa_order) . '">' . esc_html($foa_term->name) . '</a></li>';
 						}
 						echo '</ul>';
 					} else {
