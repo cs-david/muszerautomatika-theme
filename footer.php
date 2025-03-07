@@ -102,11 +102,7 @@
 <?php if (ICL_LANGUAGE_CODE == 'en') { ?>
 	<script>
 		const plinks = document.querySelectorAll('.footer-product-cat-list a');
-		const alinks = document.querySelectorAll('.footer-foa-list a');
 		plinks.forEach(link => {
-			link.href = '';
-		});
-		alinks.forEach(link => {
 			link.href = '';
 		});
 	</script>
