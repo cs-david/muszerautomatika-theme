@@ -59,7 +59,7 @@
 					));
 
 					if (!empty($foa_terms) && !is_wp_error($foa_terms)) {
-						echo '<ul class="footer-product-cat-list">';
+						echo '<ul class="footer-foa-list">';
 						foreach ($foa_terms as $foa_term) {
 							echo '<li><a href="' . esc_url(home_url('/gazerzekelo-alkalmazasok#' . $foa_term->slug)) . '">' . esc_html($foa_term->name) . '</a></li>';
 						}
@@ -97,6 +97,25 @@
         </div>
     </footer>
 </div><!-- #page -->
+
+<?php if (ICL_LANGUAGE_CODE == 'en') { ?>
+	<script>
+		const plinks = document.querySelectorAll('.footer-product-cat-list a');
+		const alinks = document.querySelectorAll('.footer-foa-list a');
+		plinks.forEach(link => {
+			link.href = '';
+		});
+		alinks.forEach(link => {
+			link.href = '';
+		});
+	</script>
+	<style>
+		.footer-product-cat-list a, .footer-foa-list a {
+			cursor: not-allowed;
+			pointer-events: none;
+		}
+	</style>
+<?php } ?>
 
 
 <?php wp_footer(); ?>

@@ -81,7 +81,7 @@ get_header();
                         
                         ?>
 
-                        <div class="app-section" id="<?php echo esc_html($foa_term->slug); ?>">
+                        <div class="app-section" id="<?php echo 'foa-' . esc_html($foa_order); ?>">
                             <div class="wrap-wide <?php echo ($foa_order % 2 == 1) ? 'wrap-reverse' : ''; ?>">
                                 <div class="wrap">
                                     <div class="app-img">
