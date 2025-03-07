@@ -107,7 +107,7 @@
 		});
 	</script>
 	<style>
-		.footer-product-cat-list a, .footer-foa-list a {
+		.footer-product-cat-list a {
 			cursor: not-allowed;
 			pointer-events: none;
 		}
