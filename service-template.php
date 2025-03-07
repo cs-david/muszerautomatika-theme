@@ -44,6 +44,8 @@ get_header();
                             <dl class="contact-list">
                                 <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
                                 <dd><a href="<?php echo get_theme_mod('sales_address_map'); ?>" target="_blank"><?php echo get_theme_mod('service_address'); ?></a></dd>
+                                <dt><?php _e('Szállítási cím:', 'muszerautomatika-theme'); ?></dt>
+                                <dd><?php echo get_theme_mod('service_shipping_address'); ?></dd>                                
                                 <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
                                 <dd><?php echo get_theme_mod('service_postbox'); ?></dd>
                                 <dt><?php _e('Telefon:', 'muszerautomatika-theme'); ?></dt>

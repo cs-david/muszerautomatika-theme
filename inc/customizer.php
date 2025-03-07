@@ -274,6 +274,19 @@ function ma_customizer_settings($wp_customize) {
         'type'        => 'text',
     ));
 
+	// Shipping Address
+	$wp_customize->add_setting('service_shipping_address', array(
+		'default'           => 'Szállítási cím',
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport'         => 'refresh',
+	));
+
+	$wp_customize->add_control('service_shipping_address', array(
+		'label'       => 'Szállítási cím',
+		'section'     => 'service_contact_section',
+		'type'        => 'text',
+	));
+
     // Postafiók
     $wp_customize->add_setting('service_postbox', array(
         'default'           => 'Postafiók',

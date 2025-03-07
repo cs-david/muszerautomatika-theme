@@ -92,7 +92,9 @@ get_header();
                                     <div class="app-text">
                                         <h2 class="ul-dots"><?php echo esc_html($foa_term->name); ?></h2>
                                         <p><?php echo esc_html($foa_term->description); ?></p>
+                                        <?php if (ICL_LANGUAGE_CODE !== 'en') { ?>
                                         <a href="<?php echo esc_url(get_term_link($foa_term)); ?>" class="btn"><?php echo esc_html(__('kapcsolódó termékek', 'muszerautomatika-theme')); ?></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>

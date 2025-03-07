@@ -87,6 +87,8 @@ get_header();
                             <dl class="contact-list">
                             <dt><?php _e('Postacím:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php echo get_theme_mod('service_address'); ?></dd>
+                            <dt><?php _e('Szállítási cím:', 'muszerautomatika-theme'); ?></dt>
+                            <dd><?php echo get_theme_mod('service_shipping_address'); ?></dd> 
                             <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php echo get_theme_mod('service_postbox'); ?></dd>
                             <dt><?php _e('Telefon:', 'muszerautomatika-theme'); ?></dt>
@@ -125,7 +127,9 @@ get_header();
                     </div>
                 </div>
             </section>
-
+            
+            <?php if (ICL_LANGUAGE_CODE !== 'en') { ?>
+                            
             <section class="team">
                 <div class="wrap">
                 <h2 class="ul-dots"><?php the_field('team_h2') ?></h2>
@@ -160,6 +164,7 @@ get_header();
                 </div>
                 </div>
             </section>
+            <?php } ?>
             <?php if (get_field("contact_form_type") != "disabled") {
                     include_once(get_template_directory() . '/contact-form-section.php');
                 } ?>

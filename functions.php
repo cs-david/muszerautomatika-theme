@@ -131,11 +131,6 @@ function muszerautomatika_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'muszerautomatika_theme_scripts' );
 
 /**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
