@@ -1,5 +1,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="product-card-img">
+        <a href="<?php the_permalink(); ?>">
 
         <?php if(has_post_thumbnail()) :
         
@@ -13,6 +14,7 @@
         <?php if(get_field("atex_label")) : ?>
             <img class="atex-img" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/certs/atex-logo.svg" alt="<?php _e('ATEX direktíva szerinti termék', 'muszerautomatika-theme'); ?>"/>
         <?php endif; ?>
+        </a>
     </div>
     <div class="product-card-content">
         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
