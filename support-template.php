@@ -64,7 +64,7 @@ get_header();
                     </div>
                             
                     <div class="accordion-section">
-                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Felhasználói kézikönyvek', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
                         <div class="accordion-section-content">
                             <ul class="fancy-anchor">
                             
@@ -118,7 +118,7 @@ get_header();
                     </div>
                             
                     <div class="accordion-section">
-                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
+                        <h3 class="accordion-section-header"><i class="fas fa-file-download"></i><?php _e('Telepítési segédletek', 'muszerautomatika-theme'); ?><i class="fa-solid fa-circle-arrow-down accordion-arrow"></i></h3>
                         <div class="accordion-section-content">
                             <ul class="fancy-anchor"> 
                                     

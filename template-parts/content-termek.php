@@ -133,7 +133,7 @@
                         </ul>
                         <?php endif; ?>
                         <?php if(get_field('product_manuals')) : ?>
-                        <h3 class="dl-subheading"><?php _e('Műszerkönyvek', 'muszerautomatika-theme'); ?></h3>
+                        <h3 class="dl-subheading"><?php _e('Felhasználói kézikönyvek', 'muszerautomatika-theme'); ?></h3>
                         <ul class="fancy-anchor">
                             <?php 
                             $product_manuals = get_field('product_manuals');
@@ -163,7 +163,7 @@
                         </ul>
                         <?php endif; ?>
                         <?php if(get_field('product_installation_doc')) : ?>
-                        <h3 class="dl-subheading"><?php _e('Telepítési vázlatok', 'muszerautomatika-theme'); ?></h3>
+                        <h3 class="dl-subheading"><?php _e('Telepítési segédletek', 'muszerautomatika-theme'); ?></h3>
                         <ul class="fancy-anchor">
                             <?php 
                             $product_installation_doc = get_field('product_installation_doc');
