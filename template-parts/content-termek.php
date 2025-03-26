@@ -203,6 +203,9 @@
                                         </div>
                                     <?php endif; ?>
                                     <h3><?php the_title(); ?></h3>
+                                    <?php if(get_field("atex_label")) : ?>
+                                        <img class="atex-img" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/certs/atex-logo.svg" alt="<?php _e('ATEX direktíva szerinti termék', 'muszerautomatika-theme'); ?>"/>
+                                    <?php endif; ?>
                                 </a>
                             </article>
                         <?php endforeach; ?>
