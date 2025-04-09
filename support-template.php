@@ -50,9 +50,9 @@ get_header();
                                         $tech_sheets_array = explode("\n", $tech_sheets);
                                         foreach ($tech_sheets_array as $sheet) {
                                             list($text, $href) = explode('|', $sheet);
-                                            if (!isset($seen_hrefs[$href])) {
+                                            if (!isset($seen_texts[$text])) {
                                                 echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
-                                                $seen_hrefs[$href] = true;
+                                                $seen_texts[$text] = true;
                                             }                                    }
                                     } 
                                 endwhile;
@@ -77,9 +77,9 @@ get_header();
                                         $product_manuals_array = explode("\n", $product_manuals);;
                                         foreach ($product_manuals_array as $manual) {
                                             list($text, $href) = explode('|', $manual);
-                                            if (!isset($seen_hrefs[$href])) {
+                                            if (!isset($seen_texts[$text])) {
                                                 echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
-                                                $seen_hrefs[$href] = true;
+                                                $seen_texts[$text] = true;
                                             }
                                         }
                                     }
@@ -104,9 +104,9 @@ get_header();
                                         $product_licences_array = explode("\n", $product_licences);
                                         foreach ($product_licences_array as $licence) {
                                             list($text, $href) = explode('|', $licence);
-                                            if (!isset($seen_hrefs[$href])) {
+                                            if (!isset($seen_texts[$text])) {
                                                 echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
-                                                $seen_hrefs[$href] = true;
+                                                $seen_texts[$text] = true;
                                             }                                    }
                                     }
                                 endwhile;
@@ -130,9 +130,9 @@ get_header();
                                         $product_installation_doc_array = explode("\n", $product_installation_doc);
                                         foreach ($product_installation_doc_array as $doc) {
                                             list($text, $href) = explode('|', $doc);
-                                            if (!isset($seen_hrefs[$href])) {
+                                            if (!isset($seen_texts[$text])) {
                                                 echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
-                                                $seen_hrefs[$href] = true;
+                                                $seen_texts[$text] = true;
                                             }                                    }
                                     }
                                 endwhile;
@@ -153,9 +153,9 @@ get_header();
                                     $misc_docs_array = explode("\n", $misc_docs);
                                     foreach ($misc_docs_array as $misc_doc) {
                                         list($text, $href) = explode('|', $misc_doc);
-                                        if (!isset($seen_hrefs[$href])) {
+                                        if (!isset($seen_texts[$text])) {
                                             echo '<li><a href="' . esc_url($href) . '">' . esc_html($text) . '</a></li>';
-                                            $seen_hrefs[$href] = true;
+                                            $seen_texts[$text] = true;
                                         }                                    }
                                 } ?>
                             </ul>

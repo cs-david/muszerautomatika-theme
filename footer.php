@@ -79,7 +79,11 @@
 						<dt><?php _e('szakszerviz', 'muszerautomatika-theme'); ?></dt>
                         <dd><a href="tel:<?php echo preg_replace('/[^0-9+]/', '', get_theme_mod('service_phone', '+36-23-416-761')); ?>"><?php echo get_theme_mod('service_phone', '+36-23-416-761'); ?></a></dd>    
                     </dl>
-					<a href="<?php echo esc_url(home_url('/kapcsolat')); ?>"><?php _e('további elérhetőségek', 'muszerautomatika-theme'); ?></a>
+					<?php if (is_page_template('contact-template.php')) : ?>
+						<a href="#contact-top"><?php _e('további elérhetőségek', 'muszerautomatika-theme'); ?></a>
+					<?php else : ?>
+						<a href="<?php echo esc_url(home_url('/kapcsolat')); ?>"><?php _e('további elérhetőségek', 'muszerautomatika-theme'); ?></a>
+					<?php endif; ?>
                 </div>
             </div>
         </div>

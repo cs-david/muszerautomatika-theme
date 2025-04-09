@@ -31,7 +31,7 @@ get_header();
                     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
                 </div>
             </section>
-            <section class="contact-infos">
+            <section class="contact-infos" id="contact-top">
                 <div class="wrap">
                     <div class="contact-info-container">
                         <div>
