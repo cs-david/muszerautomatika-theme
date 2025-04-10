@@ -337,3 +337,12 @@ function ma_slides_tag() {
 
 add_action('init', 'ma_slides_tag');
 
+/* Media Library File type support */
+// Allow DWG and DXF file types in the media library
+
+function allow_custom_mime_types($mimes) {
+    $mimes['dwg'] = 'image/vnd.dwg';
+    $mimes['dxf'] = 'image/vnd.dxf';
+    return $mimes;
+}
+add_filter('upload_mimes', 'allow_custom_mime_types');
