@@ -39,6 +39,24 @@ jQuery(document).ready(function($) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+  // Cookie Banner
+
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+
+  if (!localStorage.getItem('cookiesAccepted')) {
+    banner.style.display = 'block';
+    banner.setAttribute('aria-hidden', 'false');
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    const expirationDate = new Date();
+    expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+    localStorage.setItem('cookiesAccepted', JSON.stringify({ value: 'true', expires: expirationDate.toISOString() }));
+    banner.style.display = 'none';
+    banner.setAttribute('aria-hidden', 'true');
+  });
+
   // Scroll to top button 
 
   const scrollToTopButton = document.querySelector('.jump-to-top');

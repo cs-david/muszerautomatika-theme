@@ -169,6 +169,7 @@ get_header();
                     <svg viewBox="0 0 787 109"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-rgedeon"></use></svg>
                     <svg viewBox="0 0 266 167"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-egis"></use></svg>
                     <svg viewBox="0 0 551 193"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#logo-teva"></use></svg>
+                    <svg viewBox="0 0 1750 239"><use xlink:href="<?php echo get_template_directory_uri(); ?>/img/partners/partners-sprite.svg?v=<?php echo time(); ?>#mvm-logo"></use></svg>
                 </div>
             </div>
         </section>

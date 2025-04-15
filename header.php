@@ -23,14 +23,18 @@
 <body <?php body_class(); ?> id="top" >
 <?php wp_body_open(); ?>
 <div id="page" class="site">
+	<div id="cookie-banner" class="cookie-banner" aria-hidden="true">
+		<p><?php _e( 'Ez az oldal sütiket használ. Bővebb információ az <a href="' . esc_url(home_url('/adatkezelesi-tajekoztato')) . '" target="_blank">adatkezelési tájékoztatóban</a>.', 'muszerautomatika-theme' ); ?></p>
+		<button id="accept-cookies" class="btn red"><?php _e( 'Elfogadom', 'muszerautomatika-theme' ); ?></button>
+	</div>
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Ugrás a tartalomhoz', 'muszerautomatika-theme' ); ?></a>
 	<header id="masthead" class="sticky-header site-header">
         <div class="wrap">
             <nav class="top-nav" id="top-nav">
 				<?php if ( is_front_page() && is_home() ) : ?>
-				<a class="header-logo" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"><h1 class="site-title"><?php _e( 'Gáz és oldószergőz', 'muszerautomatika-theme' ); ?><br> <span><?php _e( 'érzékelő készülékek', 'muszerautomatika-theme' ); ?></span></h1><p class="ma-logo"><img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/> <?php _e( 'Műszer Automatika Kft.', 'muszerautomatika-theme' ); ?></p></a>
+				<a class="header-logo" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"><h1 class="site-title"><?php _e( 'Gáz- és oldószergőz', 'muszerautomatika-theme' ); ?><br> <span><?php _e( 'érzékelő készülékek', 'muszerautomatika-theme' ); ?></span></h1><p class="ma-logo"><img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/> <?php _e( 'Műszer Automatika Kft.', 'muszerautomatika-theme' ); ?></p></a>
                 <?php else : ?>
-				<a class="header-logo" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"><p class="site-title"><?php _e( 'Gáz és oldószergőz', 'muszerautomatika-theme' ); ?><br> <span><?php _e( 'érzékelő készülékek', 'muszerautomatika-theme' ); ?></span></p><p class="ma-logo"><img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/> <?php _e( 'Műszer Automatika Kft.', 'muszerautomatika-theme' ); ?></p></a>
+				<a class="header-logo" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"><p class="site-title"><?php _e( 'Gáz- és oldószergőz', 'muszerautomatika-theme' ); ?><br> <span><?php _e( 'érzékelő készülékek', 'muszerautomatika-theme' ); ?></span></p><p class="ma-logo"><img src="<?php echo get_template_directory_uri(); ?>/img/ma-logo.svg" alt="<?php esc_attr_e( 'Műszer automatika szimbolum', 'muszerautomatika-theme' ); ?>"/> <?php _e( 'Műszer Automatika Kft.', 'muszerautomatika-theme' ); ?></p></a>
 				<?php endif; ?>
 				<div class="header-right">
                     <div class="header-right-top">
