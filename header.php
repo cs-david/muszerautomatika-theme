@@ -24,7 +24,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<div id="cookie-banner" class="cookie-banner" aria-hidden="true">
-		<p><?php _e( 'Ez az oldal sütiket használ. Bővebb információ az <a href="' . esc_url(home_url('/adatkezelesi-tajekoztato')) . '" target="_blank">adatkezelési tájékoztatóban</a>.', 'muszerautomatika-theme' ); ?></p>
+		<p><?php _e( 'Ez az oldal sütiket használ. Bővebb információ az', 'muszerautomatika-theme'); ?> <a href="<?php echo esc_url(home_url('/adatkezelesi-tajekoztato')); ?>" target="_blank" rel="noopener noreferrer"><?php _e('adatkezelési tájékoztatóban', 'muszerautomatika-theme'); ?></a></p>
 		<button id="accept-cookies" class="btn red"><?php _e( 'Elfogadom', 'muszerautomatika-theme' ); ?></button>
 	</div>
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Ugrás a tartalomhoz', 'muszerautomatika-theme' ); ?></a>

@@ -63,8 +63,6 @@ get_header();
                             <dd><?php echo get_theme_mod('sales_address'); ?></dd>
                             <dt><?php _e('Szállítási cím:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php echo get_theme_mod('shipping_address'); ?></dd>
-                            <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
-                            <dd><?php echo get_theme_mod('sales_postbox'); ?></dd>
                             <dt><?php _e('Telefon:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php 
                                 $sales_phone_numbers = explode(',', get_theme_mod('sales_phone'));
@@ -89,8 +87,6 @@ get_header();
                             <dd><?php echo get_theme_mod('service_address'); ?></dd>
                             <dt><?php _e('Szállítási cím:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php echo get_theme_mod('service_shipping_address'); ?></dd> 
-                            <dt><?php _e('Postafiók:', 'muszerautomatika-theme'); ?></dt>
-                            <dd><?php echo get_theme_mod('service_postbox'); ?></dd>
                             <dt><?php _e('Telefon:', 'muszerautomatika-theme'); ?></dt>
                             <dd><?php 
                                 $service_phone_numbers = explode(',', get_theme_mod('service_normal_phone'));
