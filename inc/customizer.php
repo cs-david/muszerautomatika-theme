@@ -194,19 +194,6 @@ function ma_customizer_settings($wp_customize) {
         'type'        => 'text',
     ));
 
-    // Postafiók
-    $wp_customize->add_setting('sales_postbox', array(
-        'default'           => 'Postafiók',
-        'sanitize_callback' => 'sanitize_text_field',
-        'transport'         => 'refresh',
-    ));
-
-    $wp_customize->add_control('sales_postbox', array(
-        'label'       => 'Postafiók',
-        'section'     => 'sales_contact_section',
-        'type'        => 'text',
-    ));
-
     // Telefon
     $wp_customize->add_setting('sales_phone', array(
         'default'           => 'Telefon',
@@ -286,19 +273,6 @@ function ma_customizer_settings($wp_customize) {
 		'section'     => 'service_contact_section',
 		'type'        => 'text',
 	));
-
-    // Postafiók
-    $wp_customize->add_setting('service_postbox', array(
-        'default'           => 'Postafiók',
-        'sanitize_callback' => 'sanitize_text_field',
-        'transport'         => 'refresh',
-    ));
-
-    $wp_customize->add_control('service_postbox', array(
-        'label'       => 'Postafiók',
-        'section'     => 'service_contact_section',
-        'type'        => 'text',
-    ));
 
     // Telefon
     $wp_customize->add_setting('service_normal_phone', array(
