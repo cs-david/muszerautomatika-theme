@@ -10,7 +10,8 @@
 get_header(); ?>
 
     <?php if(get_field('floating_cta', 15)) : ?>
-        <a class="fixed-offer-btn" href="#contact-form"><?php the_field('floating_cta_label', 15); ?></a>
+        <a class="fixed-offer-btn" href="#contact-form"><?php $translated_id = apply_filters( 'wpml_object_id', 15, 'page', true );
+the_field( 'floating_cta_label', $translated_id ); ?></a>
     <?php endif; ?>
 
     <main id="primary">
