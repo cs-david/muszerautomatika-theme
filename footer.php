@@ -103,22 +103,6 @@
     </footer>
 </div><!-- #page -->
 
-<?php if (ICL_LANGUAGE_CODE == 'en') { ?>
-	<script>
-		const plinks = document.querySelectorAll('.footer-product-cat-list a');
-		plinks.forEach(link => {
-			link.href = '';
-		});
-	</script>
-	<style>
-		.footer-product-cat-list a {
-			cursor: not-allowed;
-			pointer-events: none;
-		}
-	</style>
-<?php } ?>
-
-
 <?php wp_footer(); ?>
 
 </body>

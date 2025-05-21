@@ -14,7 +14,8 @@ if (is_archive('termek') || is_singular('termek')) {
     <div class="wrap-wide with-narrow">
         <div class="wrap with-narrow">
             <div class="wrap-narrow">
-                <h2><?php if (is_singular('termek') || is_archive() || is_search()) { echo get_field("contact_form_heading" , 15); } else { the_field("contact_form_heading"); } ?></h2>
+                <h2><?php if (is_singular('termek') || is_archive() || is_search()) { $translated_id = apply_filters( 'wpml_object_id', 15, 'page', true );
+echo get_field( 'contact_form_heading', $translated_id ); } else { the_field("contact_form_heading"); } ?></h2>
                 <?php
 
                 switch ($contact_form_type) {

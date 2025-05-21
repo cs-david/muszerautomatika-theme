@@ -52,10 +52,13 @@ get_header(); ?>
         <section class="product-list-intro">
             <div class="wrap">
                 <div class="product-cols product-col-1">
-                    <h1><span><?php echo get_the_title(15); ?></span></h1>
+                    <h1><span><?php $translated_id = apply_filters( 'wpml_object_id', 15, 'page', true );
+                        echo get_the_title( $translated_id ); ?></span></h1>
                 </div>
                 <div class="product-cols product-col-2">
-                    <?php echo get_post(15)->post_content; ?>
+                    <?php $translated_id = apply_filters( 'wpml_object_id', 15, 'page', true );
+                        $post = get_post( $translated_id );
+                        echo apply_filters( 'the_content', $post->post_content ); ?>
                 </div>
             </div>
         </section>
@@ -80,12 +83,12 @@ get_header(); ?>
                         get_template_part( 'template-parts/content', 'termek-loop' );
 
                     endwhile; else : ?>
-                        <p><?php _e('Nincsenek termékek.'); ?></p>
+                        <p><?php _e('Nincsenek termékek.', 'muszerautomatika-theme'); ?></p>
                     <?php endif; ?>
                     </div>
                     <div class="not-found-message" aria-hidden="true">
                         <i class="fa-solid fa-hand-point-up"></i>
-                        <p><?php _e('Nem találhatók a megadott alkalmazási terület(ek)hez kapcsolódó termékek ebben a kategóriában.'); ?></p>
+                        <p><?php _e('Nem találhatók a megadott alkalmazási terület(ek)hez kapcsolódó termékek ebben a kategóriában.', 'muszerautomatika-theme'); ?></p>
                     </div>
                 </div>
             </div>

@@ -184,20 +184,4 @@ get_header();
 
 	</main><!-- #main -->
 
-<?php
-
-if (ICL_LANGUAGE_CODE == 'en') { ?>
-	<script>
-		const productLinks = document.querySelectorAll('.product-tiles a');
-		productLinks.forEach(link => {
-			link.href = '';
-		});
-	</script>
-	<style>
-		.product-tiles a {
-			cursor: not-allowed;
-			pointer-events: none;
-		}
-	</style>
-<?php } 
-get_footer();
+<?php get_footer();
