@@ -348,3 +348,10 @@ function allow_custom_mime_types($mimes) {
     return $mimes;
 }
 add_filter('upload_mimes', 'allow_custom_mime_types');
+
+add_action('template_redirect', function () {
+    if (is_404()) {
+        wp_redirect(home_url());
+        exit;
+    }
+});
